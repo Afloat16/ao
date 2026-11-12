@@ -1,0 +1,44 @@
+name: Validate MSE observer empty calibration
+on:
+  push:
+    branches:
+      - validation/mse-observer-empty-calibration-20261112
+permissions:
+  contents: read
+jobs:
+  native-observer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      OMP_NUM_THREADS: "2"
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install native CPU PyTorch and test dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python pytest expecttest hypothesis numpy packaging safetensors psutil "ruff==0.11.6"
+      - name: Verify baseline failures and complete native observer suite
+        run: .venv/bin/python validation/run_empty_calibration.py
+      - name: Check changed Python files
+        run: |
+          .venv/bin/ruff check torchao/quantization/observer.py test/quantization/test_observer.py
+          .venv/bin/ruff format --check torchao/quantization/observer.py test/quantization/test_observer.py
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mse-empty-calibration-3bbf5fa3ac55
+          path: |
+            before.log
+            before.xml
+            after.log
+            after.xml
+            validation_result.json
