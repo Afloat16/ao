@@ -1,0 +1,46 @@
+name: Validate MSE observer loss precision
+on:
+  push:
+    branches:
+      - validation/mse-half-precision-loss-20261112
+permissions:
+  contents: read
+jobs:
+  native-observer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      OMP_NUM_THREADS: "2"
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 64
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install native CPU PyTorch and test dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python pytest expecttest hypothesis numpy packaging safetensors psutil "ruff==0.11.6"
+      - name: Verify baseline failures and complete native observer suite
+        run: .venv/bin/python validation/run_mse_precision.py
+      - name: Check changed Python files
+        run: |
+          .venv/bin/ruff check torchao/quantization/observer.py test/quantization/test_observer.py
+          .venv/bin/ruff format --diff torchao/quantization/observer.py test/quantization/test_observer.py
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mse-loss-precision-b18ee6cebb74
+          path: |
+            before.log
+            before.xml
+            after.log
+            after.xml
+            validation_result.json
+            metrics_before.jsonl
+            metrics_after.jsonl
