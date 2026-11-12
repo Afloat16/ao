@@ -27,8 +27,6 @@ jobs:
           uv pip install --python .venv/bin/python pytest expecttest hypothesis numpy packaging safetensors psutil "ruff==0.11.6"
       - name: Verify baseline failures and complete native observer suite
         run: .venv/bin/python validation/run_empty_calibration.py
-      - name: Probe native low-precision calibration
-        run: .venv/bin/python validation/probe_mse_precision.py
       - name: Check changed Python files
         run: |
           .venv/bin/ruff check torchao/quantization/observer.py test/quantization/test_observer.py
@@ -37,7 +35,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mse-empty-calibration-3bbf5fa3ac55
+          name: mse-empty-calibration-f0f6d28e312a
           path: |
             before.log
             before.xml

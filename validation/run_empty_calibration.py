@@ -6,10 +6,11 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a724e78b166c828a81d858b029daf4e4f4011a27"
-HEAD = "3bbf5fa3ac5570cfd7b8172cddb04f8f8df212b6"
+HEAD = "f0f6d28e312ab505fbe2a08de50d3e37e46643f4"
 SOURCE = "torchao/quantization/observer.py"
 TESTS = "test/quantization/test_observer.py"
 ROOT = Path.cwd()
+subprocess.run(["git", "fetch", "--no-tags", "--depth=1", "origin", BASE, HEAD], check=True)
 for path in (SOURCE, TESTS):
     expected = subprocess.check_output(["git", "show", f"{HEAD}:{path}"])
     assert (ROOT / path).read_bytes() == expected, path
