@@ -6,7 +6,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a724e78b166c828a81d858b029daf4e4f4011a27"
-HEAD = "b18ee6cebb744b5201429931622f9d6e3928a147"
+HEAD = "f1cca771be688284f1015db6f8d5e5ff8541e03b"
 SOURCE = "torchao/quantization/observer.py"
 TESTS = "test/quantization/test_observer.py"
 ROOT = Path.cwd()

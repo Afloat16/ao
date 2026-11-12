@@ -35,7 +35,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mse-loss-precision-b18ee6cebb74
+          name: mse-loss-precision-f1cca771be68
           path: |
             before.log
             before.xml
