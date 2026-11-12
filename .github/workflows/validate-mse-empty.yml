@@ -30,7 +30,7 @@ jobs:
       - name: Check changed Python files
         run: |
           .venv/bin/ruff check torchao/quantization/observer.py test/quantization/test_observer.py
-          .venv/bin/ruff format --check torchao/quantization/observer.py test/quantization/test_observer.py
+          .venv/bin/ruff format --diff torchao/quantization/observer.py test/quantization/test_observer.py
       - name: Save evidence
         if: always()
         uses: actions/upload-artifact@v4
