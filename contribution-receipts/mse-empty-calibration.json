@@ -1,0 +1,37 @@
+{
+  "repository": "pytorch/ao",
+  "fork": "Afloat16/ao",
+  "branch": "fix/mse-observer-empty-calibration-20261112",
+  "head": "f0f6d28e312ab505fbe2a08de50d3e37e46643f4",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "tree": "abd094e58bf8b0049aff135ae6ead4992d27a108",
+  "title": "Ignore empty batches before updating MSE observer calibration",
+  "body": "## Summary\n\nAn empty input currently reaches `AffineQuantizedMSEObserver.line_search`, whose empty-input return is a tensor rather than a pair of bounds. Empty shapes such as `(0, 8)` raise during tuple unpacking. Shape `(2, 0)` instead silently installs empty bounds and marks the observer calibrated; with `run_once=True`, the next nonempty input is then skipped.\n\nReturn the original empty tensor before updating the MSE observer's ranges or calibrated flag. Previously calibrated ranges remain intact across empty batches.\n\n## Validation\n\nNative CPU PyTorch 2.14.0, with the repository's normal test configuration:\n\n- 26 new cases cover three empty shapes, per-tensor and per-axis calibration, and both `run_once` settings.\n- Against the unmodified source: 20 fail and 6 pass.\n- With this change: all 43 tests in `test/quantization/test_observer.py` pass, including the 17 existing tests.\n- A real two-layer network processes an empty batch followed by two nonempty batches. Outputs, parameter gradients, and three SGD updates match the reference network exactly.\n- Ruff 0.11.6 checks and formatting pass.\n\nValidation checks the exact production source and test bytes at `f0f6d28e312ab505fbe2a08de50d3e37e46643f4`:\nhttps://github.com/Afloat16/ao/actions/runs/43304236501\n",
+  "validation": {
+    "run_id": 43304236501,
+    "url": "https://github.com/Afloat16/ao/actions/runs/43304236501",
+    "before": {
+      "new": 26,
+      "failed": 20,
+      "passed": 6
+    },
+    "after": {
+      "new": 26,
+      "existing": 17,
+      "total_passed": 43
+    },
+    "status": "success"
+  },
+  "publication": "branch_pushed_pr_creation_blocked",
+  "create_pr_response": {
+    "error": "GitHub API error 403: {\"message\":\"Resource not accessible by integration\",\"documentation_url\":\"https://docs.github.com/rest/pulls/pulls#create-a-pull-request\",\"status\":\"403\"}",
+    "error_code": "FORBIDDEN",
+    "error_data": {
+      "message": "Resource not accessible by integration",
+      "documentation_url": "https://docs.github.com/rest/pulls/pulls#create-a-pull-request",
+      "status": "403"
+    }
+  },
+  "prefilled_url": "https://github.com/pytorch/ao/compare/main...Afloat16:fix/mse-observer-empty-calibration-20261112?expand=1&title=Ignore%20empty%20batches%20before%20updating%20MSE%20observer%20calibration&body=%23%23%20Summary%0A%0AAn%20empty%20input%20currently%20reaches%20%60AffineQuantizedMSEObserver.line_search%60%2C%20whose%20empty-input%20return%20is%20a%20tensor%20rather%20than%20a%20pair%20of%20bounds.%20Empty%20shapes%20such%20as%20%60(0%2C%208)%60%20raise%20during%20tuple%20unpacking.%20Shape%20%60(2%2C%200)%60%20instead%20silently%20installs%20empty%20bounds%20and%20marks%20the%20observer%20calibrated%3B%20with%20%60run_once%3DTrue%60%2C%20the%20next%20nonempty%20input%20is%20then%20skipped.%0A%0AReturn%20the%20original%20empty%20tensor%20before%20updating%20the%20MSE%20observer's%20ranges%20or%20calibrated%20flag.%20Previously%20calibrated%20ranges%20remain%20intact%20across%20empty%20batches.%0A%0A%23%23%20Validation%0A%0ANative%20CPU%20PyTorch%202.14.0%2C%20with%20the%20repository's%20normal%20test%20configuration%3A%0A%0A-%2026%20new%20cases%20cover%20three%20empty%20shapes%2C%20per-tensor%20and%20per-axis%20calibration%2C%20and%20both%20%60run_once%60%20settings.%0A-%20Against%20the%20unmodified%20source%3A%2020%20fail%20and%206%20pass.%0A-%20With%20this%20change%3A%20all%2043%20tests%20in%20%60test%2Fquantization%2Ftest_observer.py%60%20pass%2C%20including%20the%2017%20existing%20tests.%0A-%20A%20real%20two-layer%20network%20processes%20an%20empty%20batch%20followed%20by%20two%20nonempty%20batches.%20Outputs%2C%20parameter%20gradients%2C%20and%20three%20SGD%20updates%20match%20the%20reference%20network%20exactly.%0A-%20Ruff%200.11.6%20checks%20and%20formatting%20pass.%0A%0AValidation%20checks%20the%20exact%20production%20source%20and%20test%20bytes%20at%20%60f0f6d28e312ab505fbe2a08de50d3e37e46643f4%60%3A%0Ahttps%3A%2F%2Fgithub.com%2FAfloat16%2Fao%2Factions%2Fruns%2F43304236501%0A",
+  "merged_at": null
+}

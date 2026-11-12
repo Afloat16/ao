@@ -1,0 +1,38 @@
+{
+  "repository": "pytorch/ao",
+  "fork": "Afloat16/ao",
+  "branch": "fix/mse-observer-half-precision-loss-20261112",
+  "head": "f1cca771be688284f1015db6f8d5e5ff8541e03b",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "tree": "9912a606b1178ac4cd966d37427b4129eeae45a6",
+  "title": "Compute half-precision MSE calibration losses in float32",
+  "body": "## Summary\n\nMSE calibration currently computes subtraction, squaring, and reduction in the input dtype. For FP16 inputs, candidate reconstruction errors can underflow to zero, so the search accepts an excessively narrow clipping range. Large residuals can also overflow before reduction.\n\nPromote both operands to float32 when both are FP16 or BF16, before subtraction and squaring. Float32, float64, and mixed inputs containing a higher-precision operand retain their existing arithmetic. Autograd remains connected through the casts.\n\n## Measured effect\n\nOn native CPU PyTorch 2.14.0, calibrating four rows of 1,024 FP16 values spanning -0.004 to 0.004 with 64 candidates:\n\n- Original reconstruction MSE: `2.75132255e-8`.\n- Patched reconstruction MSE: `8.24749991e-11`.\n- The patched result equals the independently evaluated best candidate, a 333.6-fold reduction in this example.\n\nPer-tensor and per-axis calibration both reproduce this result. This measures reconstruction error for the stated calibration input; it does not establish end-to-end model accuracy or a speed improvement. The change uses float32 temporary tensors during low-precision loss evaluation.\n\n## Validation\n\n- 16 new native tests cover small and large residuals, FP16/BF16 gradients, float32/float64 preservation, and exhaustive clipping-candidate comparisons.\n- Unmodified source: 12 fail and 4 pass.\n- Patched source: all 33 observer-module tests pass, including the 17 existing cases.\n- Ruff 0.11.6 checks and formatting pass.\n\nExact production head: `f1cca771be688284f1015db6f8d5e5ff8541e03b`.\nhttps://github.com/Afloat16/ao/actions/runs/43305335481\n",
+  "validation": {
+    "run_id": 43305335481,
+    "url": "https://github.com/Afloat16/ao/actions/runs/43305335481",
+    "before": {
+      "new": 16,
+      "failed": 12,
+      "passed": 4
+    },
+    "after": {
+      "new": 16,
+      "existing": 17,
+      "total_passed": 33
+    },
+    "status": "success"
+  },
+  "publication": "branch_pushed_pr_creation_blocked",
+  "create_pr_response": {
+    "error": "GitHub API error 403: {\"message\":\"Resource not accessible by integration\",\"documentation_url\":\"https://docs.github.com/rest/pulls/pulls#create-a-pull-request\",\"status\":\"403\"}",
+    "error_code": "FORBIDDEN",
+    "error_data": {
+      "message": "Resource not accessible by integration",
+      "documentation_url": "https://docs.github.com/rest/pulls/pulls#create-a-pull-request",
+      "status": "403"
+    }
+  },
+  "prefilled_url": "https://github.com/pytorch/ao/compare/main...Afloat16:fix/mse-observer-half-precision-loss-20261112?expand=1&title=Compute%20half-precision%20MSE%20calibration%20losses%20in%20float32&body=%23%23%20Summary%0A%0AMSE%20calibration%20currently%20computes%20subtraction%2C%20squaring%2C%20and%20reduction%20in%20the%20input%20dtype.%20For%20FP16%20inputs%2C%20candidate%20reconstruction%20errors%20can%20underflow%20to%20zero%2C%20so%20the%20search%20accepts%20an%20excessively%20narrow%20clipping%20range.%20Large%20residuals%20can%20also%20overflow%20before%20reduction.%0A%0APromote%20both%20operands%20to%20float32%20when%20both%20are%20FP16%20or%20BF16%2C%20before%20subtraction%20and%20squaring.%20Float32%2C%20float64%2C%20and%20mixed%20inputs%20containing%20a%20higher-precision%20operand%20retain%20their%20existing%20arithmetic.%20Autograd%20remains%20connected%20through%20the%20casts.%0A%0A%23%23%20Measured%20effect%0A%0AOn%20native%20CPU%20PyTorch%202.14.0%2C%20calibrating%20four%20rows%20of%201%2C024%20FP16%20values%20spanning%20-0.004%20to%200.004%20with%2064%20candidates%3A%0A%0A-%20Original%20reconstruction%20MSE%3A%20%602.75132255e-8%60.%0A-%20Patched%20reconstruction%20MSE%3A%20%608.24749991e-11%60.%0A-%20The%20patched%20result%20equals%20the%20independently%20evaluated%20best%20candidate%2C%20a%20333.6-fold%20reduction%20in%20this%20example.%0A%0APer-tensor%20and%20per-axis%20calibration%20both%20reproduce%20this%20result.%20This%20measures%20reconstruction%20error%20for%20the%20stated%20calibration%20input%3B%20it%20does%20not%20establish%20end-to-end%20model%20accuracy%20or%20a%20speed%20improvement.%20The%20change%20uses%20float32%20temporary%20tensors%20during%20low-precision%20loss%20evaluation.%0A%0A%23%23%20Validation%0A%0A-%2016%20new%20native%20tests%20cover%20small%20and%20large%20residuals%2C%20FP16%2FBF16%20gradients%2C%20float32%2Ffloat64%20preservation%2C%20and%20exhaustive%20clipping-candidate%20comparisons.%0A-%20Unmodified%20source%3A%2012%20fail%20and%204%20pass.%0A-%20Patched%20source%3A%20all%2033%20observer-module%20tests%20pass%2C%20including%20the%2017%20existing%20cases.%0A-%20Ruff%200.11.6%20checks%20and%20formatting%20pass.%0A%0AExact%20production%20head%3A%20%60f1cca771be688284f1015db6f8d5e5ff8541e03b%60.%0Ahttps%3A%2F%2Fgithub.com%2FAfloat16%2Fao%2Factions%2Fruns%2F43305335481%0A",
+  "merged_at": null,
+  "review": "Independent code and test review completed"
+}
