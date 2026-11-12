@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 3
+          fetch-depth: 64
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -27,6 +27,8 @@ jobs:
           uv pip install --python .venv/bin/python pytest expecttest hypothesis numpy packaging safetensors psutil "ruff==0.11.6"
       - name: Verify baseline failures and complete native observer suite
         run: .venv/bin/python validation/run_empty_calibration.py
+      - name: Probe native low-precision calibration
+        run: .venv/bin/python validation/probe_mse_precision.py
       - name: Check changed Python files
         run: |
           .venv/bin/ruff check torchao/quantization/observer.py test/quantization/test_observer.py
