@@ -1,0 +1,30 @@
+{
+  "repository": "pytorch/ao",
+  "fork": "Afloat16/ao",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "branch": "fix/optimizer-state-strided-copy-20261112",
+  "head": "6eda0c4e1c4003d68de96bf79fb3f5ec4383846f",
+  "title": "Support strided and broadcast sources when restoring quantized optimizer states",
+  "body": "## Problem\n\nQuantized optimizer-state `copy_` handlers assume a contiguous, already expanded floating-point source. A transposed or sliced moment tensor can fail at `view`, while row and scalar sources do not implement ordinary `Tensor.copy_` broadcasting. This prevents restoring moments from a native AdamW checkpoint whose parameter and moment tensors use noncontiguous layouts.\n\n## Change\n\nReshape floating-point inputs when forming quantization blocks and expand them to the destination's logical shape before quantization. Apply the same copy contract to the 4-bit, 8-bit, and FP8 optimizer states. Contiguous same-shape inputs retain the view fast path; inputs that require layout conversion allocate a reshaped copy.\n\n## Validation\n\nNative CPU PyTorch 2.14.0 with normal repository test configuration:\n\n- 27 new cases cover contiguous, transposed, strided-row, strided-column, offset, expanded, row-broadcast, and scalar-broadcast sources, plus native checkpoint restoration for all three AdamW state formats.\n- Original source: 21 failures and 6 passes. Patched source: 56 tests pass, including all 27 new cases and 29 existing quantization, slicing, dtype, and optimizer smoke cases.\n- Copy tests compare packed codes, scales, and dequantized values to the result of native dense `Tensor.copy_`, and verify that the source data and strides remain unchanged.\n- Real native AdamW moments are serialized from transposed parameters, copied into low-bit states, and used for three further compiled optimizer steps. Parameters and moment values match the equivalent contiguous restore exactly.\n- Ruff 0.11.6 checks and formatting pass.\n\nExact production head: `6eda0c4e1c4003d68de96bf79fb3f5ec4383846f`.\nhttps://github.com/Afloat16/ao/actions/runs/43397168889\n",
+  "validation": {
+    "run_id": 43397168889,
+    "head": "25620c333230bce4514f3bf39141332009189555",
+    "new_tests": 27,
+    "baseline_failed": 21,
+    "baseline_passed": 6,
+    "after_passed": 56,
+    "status": "success"
+  },
+  "merged_at": null,
+  "publication": "pull_request_created",
+  "pull_request": {
+    "number": 5112,
+    "url": "https://github.com/pytorch/ao/pull/5112",
+    "state": "open",
+    "draft": false,
+    "head": "6eda0c4e1c4003d68de96bf79fb3f5ec4383846f",
+    "merged_at": null,
+    "maintainer_can_modify": false
+  },
+  "review": "Independent full-diff review completed"
+}
