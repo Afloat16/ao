@@ -1,0 +1,56 @@
+{
+  "repository": "pytorch/ao",
+  "fork": "Afloat16/ao",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "branch": "fix/low-bit-optimizer-state-clone-20261113",
+  "head": "e4da8a230aaf9ca316b67dc1cd1cb5cea2f6893c",
+  "title": "Support independent snapshots of low-bit optimizer states",
+  "body": "## Summary\n\nCalling `clone()` or `copy.deepcopy(optimizer.state_dict())` on an initialized 4-bit, 8-bit, or FP8 optimizer currently raises an unimplemented `aten.clone` dispatch error. This prevents keeping an independent in-memory checkpoint while training continues.\n\nImplement clone dispatch for the three quantized optimizer-state tensor subclasses. The clone preserves the logical shape, dtype, signedness, and block layout, and owns copies of the quantized codes, scales, and quantization map. Both preserve and contiguous memory formats are supported.\n\n## Validation\n\n- 60 clone/deepcopy cases cover signed and unsigned 4-bit/8-bit states, FP8 states, FP32/BF16 logical dtypes, vector/matrix shapes, explicit memory formats, metadata equality, storage isolation, and deepcopy's repeated-reference behavior.\n- 12 model-training cases cover Adam/AdamW with 4-bit, 8-bit, and FP8 states in FP32/BF16. Each snapshots a trained model and optimizer, advances the original model, verifies the snapshot stayed unchanged, and compares two resumed training steps with an independently serialized checkpoint.\n- On the exact upstream base, all 72 new cases fail. With this change, all 72 pass; 29 existing optimizer tests also pass.\n- Ruff lint and formatting pass.\n\nNative CPU PyTorch validation: https://github.com/Afloat16/ao/actions/runs/43407399050\n\nThis change concerns snapshot correctness. It does not claim a training speedup or GPU validation.",
+  "publication": "created",
+  "pull_request": "https://github.com/pytorch/ao/pull/5116",
+  "number": 5116,
+  "state": "open",
+  "merged_at": null,
+  "counts_for_merged": false,
+  "validation": {
+    "head": "bb186baf6e419d79a252fd7ed4a5e885a1da7b6b",
+    "run": "https://github.com/Afloat16/ao/actions/runs/43407399050",
+    "job_id": 131824993024,
+    "baseline": {
+      "tests": 72,
+      "failed": 72
+    },
+    "patched": {
+      "tests": 72,
+      "passed": 72
+    },
+    "existing": {
+      "tests": 29,
+      "passed": 29
+    },
+    "native_model": "12 Adam/AdamW 4-bit/8-bit/FP8 model snapshot and continuation tests in FP32/BF16; two resumed updates match independent disk checkpoint",
+    "unit": "60 clone/deepcopy metadata/storage/memo tests",
+    "environment": "Ubuntu 24.04 x64 native CPU PyTorch 2.14.0",
+    "style": "Ruff 0.11.6 check and format success"
+  },
+  "review": {
+    "reviewer": "data_contributions",
+    "result": "PASS exact e4da8a2 full diff and tensor-class context; no blocking issues"
+  },
+  "deduplication": {
+    "queries": [
+      "\"OptimState\" \"clone\"",
+      "\"optimizer\" \"deepcopy\"",
+      "\"low-bit\" \"copy\"",
+      "\"optimizer\" \"snapshot\"",
+      "\"subclass\" \"clone\""
+    ],
+    "all_states": true,
+    "patches_checked": [
+      4216,
+      1021,
+      4552
+    ],
+    "distinction": "PR4216 handles dtype views/_to_copy; PR1021 device copies; PR4552 quantization-map caching. This adds direct aten.clone/default used by deepcopy and snapshots."
+  }
+}
