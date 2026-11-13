@@ -5,7 +5,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a724e78b166c828a81d858b029daf4e4f4011a27"
-HEAD = "be933c088f38fca90c547e2af87e36f5672aa1d7"
+HEAD = "49d23b3410c6870bab011b5f6d9e4b3c1e3d927b"
 SOURCE = "torchao/optim/adam.py"
 TEST = "test/test_low_bit_optim_state_dict.py"
 FILES = [SOURCE, TEST]
