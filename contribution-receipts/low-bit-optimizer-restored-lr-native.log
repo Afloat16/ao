@@ -1,0 +1,1735 @@
+﻿2026-11-13T10:04:06.5995092Z Current runner version: '2.338.2'
+2026-11-13T10:04:06.6020167Z ##[group]Runner Image Provisioner
+2026-11-13T10:04:06.6021086Z Hosted Compute Agent
+2026-11-13T10:04:06.6021748Z Version: 20261028.624
+2026-11-13T10:04:06.6022396Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-13T10:04:06.6023236Z Build Date: 2026-10-28T21:51:42Z
+2026-11-13T10:04:06.6023926Z Worker ID: {900b5ddf-6fca-4543-bfc6-941fe420246b}
+2026-11-13T10:04:06.6024706Z Region: centralus
+2026-11-13T10:04:06.6025563Z Cloud: Azure
+2026-11-13T10:04:06.6026266Z ##[endgroup]
+2026-11-13T10:04:06.6027857Z ##[group]Operating System
+2026-11-13T10:04:06.6028514Z Ubuntu
+2026-11-13T10:04:06.6029032Z 24.04.5
+2026-11-13T10:04:06.6029670Z LTS
+2026-11-13T10:04:06.6030198Z ##[endgroup]
+2026-11-13T10:04:06.6030888Z ##[group]Runner Image
+2026-11-13T10:04:06.6031573Z Image: ubuntu-24.04
+2026-11-13T10:04:06.6032167Z Version: 20261101.360.1
+2026-11-13T10:04:06.6033535Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T10:04:06.6035949Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-13T10:04:06.6036987Z ##[endgroup]
+2026-11-13T10:04:06.6038152Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T10:04:06.6040347Z Contents: read
+2026-11-13T10:04:06.6040959Z Metadata: read
+2026-11-13T10:04:06.6041639Z ##[endgroup]
+2026-11-13T10:04:06.6044220Z Secret source: Actions
+2026-11-13T10:04:06.6045475Z Cache mode: write
+2026-11-13T10:04:06.6046660Z Prepare workflow directory
+2026-11-13T10:04:06.6451699Z Prepare all required actions
+2026-11-13T10:04:06.6500868Z Getting action download info
+2026-11-13T10:04:06.9349782Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T10:04:07.0305022Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T10:04:07.1076176Z Download action repository 'astral-sh/setup-uv@v6' (SHA:d0cc045d04ccac9d8b7881df0226f9e82c39688e)
+2026-11-13T10:04:07.5219243Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T10:04:07.7369084Z Complete job name: native-optimizer
+2026-11-13T10:04:07.8226110Z ##[group]Run actions/checkout@v4
+2026-11-13T10:04:07.8227031Z with:
+2026-11-13T10:04:07.8227472Z   fetch-depth: 64
+2026-11-13T10:04:07.8227938Z   repository: Afloat16/ao
+2026-11-13T10:04:07.8231872Z   token: ***
+2026-11-13T10:04:07.8232309Z   ssh-strict: true
+2026-11-13T10:04:07.8232754Z   ssh-user: git
+2026-11-13T10:04:07.8233208Z   persist-credentials: true
+2026-11-13T10:04:07.8233703Z   clean: true
+2026-11-13T10:04:07.8234154Z   sparse-checkout-cone-mode: true
+2026-11-13T10:04:07.8234679Z   fetch-tags: false
+2026-11-13T10:04:07.8235117Z   show-progress: true
+2026-11-13T10:04:07.8235754Z   lfs: false
+2026-11-13T10:04:07.8236171Z   submodules: false
+2026-11-13T10:04:07.8236627Z   set-safe-directory: true
+2026-11-13T10:04:07.8237137Z   allow-unsafe-pr-checkout: false
+2026-11-13T10:04:07.8237922Z env:
+2026-11-13T10:04:07.8238340Z   OMP_NUM_THREADS: 2
+2026-11-13T10:04:07.8238873Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:04:07.8239426Z   MAX_JOBS: 2
+2026-11-13T10:04:07.8239887Z   PYTHONPATH: .
+2026-11-13T10:04:07.8240318Z ##[endgroup]
+2026-11-13T10:04:08.0811150Z Syncing repository: Afloat16/ao
+2026-11-13T10:04:08.0816642Z ##[group]Getting Git version info
+2026-11-13T10:04:08.0817743Z Working directory is '/home/runner/work/ao/ao'
+2026-11-13T10:04:08.0819142Z [command]/usr/bin/git version
+2026-11-13T10:04:08.0896328Z git version 2.56.0
+2026-11-13T10:04:08.0922214Z ##[endgroup]
+2026-11-13T10:04:08.0937599Z Temporarily overriding HOME='/home/runner/work/_temp/fc4df255-0d82-41ec-9732-f282a7411e67' before making global git config changes
+2026-11-13T10:04:08.0940547Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T10:04:08.0943909Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ao/ao
+2026-11-13T10:04:08.0992476Z Deleting the contents of '/home/runner/work/ao/ao'
+2026-11-13T10:04:08.0996773Z ##[group]Initializing the repository
+2026-11-13T10:04:08.1000362Z [command]/usr/bin/git init /home/runner/work/ao/ao
+2026-11-13T10:04:08.1100369Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T10:04:08.1102688Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T10:04:08.1104532Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T10:04:08.1106447Z hint: call:
+2026-11-13T10:04:08.1107432Z hint:
+2026-11-13T10:04:08.1108505Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T10:04:08.1109742Z hint:
+2026-11-13T10:04:08.1110883Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T10:04:08.1112790Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T10:04:08.1114293Z hint:
+2026-11-13T10:04:08.1115391Z hint: 	git branch -m <name>
+2026-11-13T10:04:08.1116557Z hint:
+2026-11-13T10:04:08.1117793Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T10:04:08.1119753Z Initialized empty Git repository in /home/runner/work/ao/ao/.git/
+2026-11-13T10:04:08.1123707Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/ao
+2026-11-13T10:04:08.1173138Z ##[endgroup]
+2026-11-13T10:04:08.1175689Z ##[group]Disabling automatic garbage collection
+2026-11-13T10:04:08.1177856Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T10:04:08.1214165Z ##[endgroup]
+2026-11-13T10:04:08.1216550Z ##[group]Setting up auth
+2026-11-13T10:04:08.1222671Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T10:04:08.1261581Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T10:04:08.1652952Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T10:04:08.1709793Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T10:04:08.2002673Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T10:04:08.2051584Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T10:04:08.2295655Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T10:04:08.2347568Z ##[endgroup]
+2026-11-13T10:04:08.2349415Z ##[group]Fetching the repository
+2026-11-13T10:04:08.2363149Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=64 origin +43b56ba3712903dcaa59e1cf46511ca214616490:refs/remotes/origin/validation/low-bit-optimizer-restored-lr-20261113
+2026-11-13T10:04:09.2510084Z From https://github.com/Afloat16/ao
+2026-11-13T10:04:09.2513107Z  * [new ref]         43b56ba3712903dcaa59e1cf46511ca214616490 -> origin/validation/low-bit-optimizer-restored-lr-20261113
+2026-11-13T10:04:09.2517722Z ##[endgroup]
+2026-11-13T10:04:09.2518524Z ##[group]Determining the checkout info
+2026-11-13T10:04:09.2520491Z ##[endgroup]
+2026-11-13T10:04:09.2526857Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T10:04:09.2588254Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T10:04:09.2638862Z ##[group]Checking out the ref
+2026-11-13T10:04:09.2639995Z [command]/usr/bin/git checkout --progress --force -B validation/low-bit-optimizer-restored-lr-20261113 refs/remotes/origin/validation/low-bit-optimizer-restored-lr-20261113
+2026-11-13T10:04:09.3648704Z Switched to a new branch 'validation/low-bit-optimizer-restored-lr-20261113'
+2026-11-13T10:04:09.3657444Z branch 'validation/low-bit-optimizer-restored-lr-20261113' set up to track 'origin/validation/low-bit-optimizer-restored-lr-20261113'.
+2026-11-13T10:04:09.3663625Z ##[endgroup]
+2026-11-13T10:04:09.3721383Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T10:04:09.3758617Z 43b56ba3712903dcaa59e1cf46511ca214616490
+2026-11-13T10:04:09.4196222Z ##[group]Run actions/setup-python@v5
+2026-11-13T10:04:09.4196643Z with:
+2026-11-13T10:04:09.4196905Z   python-version: 3.12
+2026-11-13T10:04:09.4197197Z   check-latest: false
+2026-11-13T10:04:09.4199873Z   token: ***
+2026-11-13T10:04:09.4200160Z   update-environment: true
+2026-11-13T10:04:09.4200467Z   allow-prereleases: false
+2026-11-13T10:04:09.4200765Z   freethreaded: false
+2026-11-13T10:04:09.4201023Z env:
+2026-11-13T10:04:09.4201259Z   OMP_NUM_THREADS: 2
+2026-11-13T10:04:09.4201548Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:04:09.4201858Z   MAX_JOBS: 2
+2026-11-13T10:04:09.4202108Z   PYTHONPATH: .
+2026-11-13T10:04:09.4202358Z ##[endgroup]
+2026-11-13T10:04:09.5656524Z ##[group]Installed versions
+2026-11-13T10:04:09.5767927Z Successfully set up CPython (3.12.16)
+2026-11-13T10:04:09.5769382Z ##[endgroup]
+2026-11-13T10:04:09.5771223Z (node:2313) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:04:09.5785036Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:04:09.6058420Z ##[group]Run astral-sh/setup-uv@v6
+2026-11-13T10:04:09.6058959Z with:
+2026-11-13T10:04:09.6059364Z   activate-environment: false
+2026-11-13T10:04:09.6059912Z   working-directory: /home/runner/work/ao/ao
+2026-11-13T10:04:09.6060510Z   server-url: https://github.com
+2026-11-13T10:04:09.6065758Z   github-token: ***
+2026-11-13T10:04:09.6066190Z   enable-cache: auto
+2026-11-13T10:04:09.6067252Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-11-13T10:04:09.6068413Z   restore-cache: true
+2026-11-13T10:04:09.6068846Z   save-cache: true
+2026-11-13T10:04:09.6069284Z   prune-cache: true
+2026-11-13T10:04:09.6069723Z   ignore-nothing-to-cache: false
+2026-11-13T10:04:09.6070246Z   ignore-empty-workdir: false
+2026-11-13T10:04:09.6070741Z   add-problem-matchers: true
+2026-11-13T10:04:09.6071194Z env:
+2026-11-13T10:04:09.6071559Z   OMP_NUM_THREADS: 2
+2026-11-13T10:04:09.6072048Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:04:09.6072531Z   MAX_JOBS: 2
+2026-11-13T10:04:09.6072916Z   PYTHONPATH: .
+2026-11-13T10:04:09.6073427Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:09.6074250Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:04:09.6075062Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:09.6076027Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:09.6076760Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:09.6077501Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:04:09.6078129Z ##[endgroup]
+2026-11-13T10:04:09.8231732Z (node:2324) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:04:09.8232742Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:04:09.8352696Z Trying to find version for uv in: /home/runner/work/ao/ao/uv.toml
+2026-11-13T10:04:09.8353724Z Could not find file: /home/runner/work/ao/ao/uv.toml
+2026-11-13T10:04:09.8354593Z Trying to find version for uv in: /home/runner/work/ao/ao/pyproject.toml
+2026-11-13T10:04:09.8368626Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-11-13T10:04:09.8370159Z Getting latest version from GitHub API...
+2026-11-13T10:04:10.1130399Z manifest-file not provided, reading from local file.
+2026-11-13T10:04:10.1163152Z manifest-file does not contain version 0.13.8, arch x86_64, platform unknown-linux-gnu. Falling back to GitHub releases.
+2026-11-13T10:04:10.1166091Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.13.8/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-13T10:04:10.4742891Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/e42b6ee4-1444-43cd-804d-25fff9062040 -f /home/runner/work/_temp/ecd5cd64-1267-4b65-8346-6286aba2ccfa
+2026-11-13T10:04:10.8122333Z Added /home/runner/.local/bin to the path
+2026-11-13T10:04:10.8125619Z Added /opt/hostedtoolcache/uv/0.13.8/x86_64 to the path
+2026-11-13T10:04:10.8137242Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:04:10.8137917Z Successfully installed uv version 0.13.8
+2026-11-13T10:04:10.8140424Z Searching files using cache dependency glob: /home/runner/work/ao/ao/**/*requirements*.txt,/home/runner/work/ao/ao/**/*requirements*.in,/home/runner/work/ao/ao/**/*constraints*.txt,/home/runner/work/ao/ao/**/*constraints*.in,/home/runner/work/ao/ao/**/pyproject.toml,/home/runner/work/ao/ao/**/uv.lock,/home/runner/work/ao/ao/**/*.py.lock
+2026-11-13T10:04:10.8536064Z /home/runner/work/ao/ao/dev-requirements.txt
+2026-11-13T10:04:10.8560110Z /home/runner/work/ao/ao/docs/requirements.txt
+2026-11-13T10:04:10.8718533Z /home/runner/work/ao/ao/pyproject.toml
+2026-11-13T10:04:10.9780778Z Found 3 files to hash.
+2026-11-13T10:04:11.0914219Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-9058e4db22c6cb22661a285be44e07e8c70d9b52c5f63329ec4702a1badb5b1b
+2026-11-13T10:04:11.2002856Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-9058e4db22c6cb22661a285be44e07e8c70d9b52c5f63329ec4702a1badb5b1b
+2026-11-13T10:04:11.2191082Z ##[group]Run uv venv .venv
+2026-11-13T10:04:11.2191408Z [36;1muv venv .venv[0m
+2026-11-13T10:04:11.2191942Z [36;1muv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T10:04:11.2192767Z [36;1muv pip install --python .venv/bin/python pytest expecttest hypothesis numpy packaging safetensors psutil "ruff==0.11.6"[0m
+2026-11-13T10:04:11.2217894Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:04:11.2218158Z env:
+2026-11-13T10:04:11.2218356Z   OMP_NUM_THREADS: 2
+2026-11-13T10:04:11.2218595Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:04:11.2218851Z   MAX_JOBS: 2
+2026-11-13T10:04:11.2219050Z   PYTHONPATH: .
+2026-11-13T10:04:11.2219325Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:11.2219760Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:04:11.2220190Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:11.2220602Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:11.2221012Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:11.2221399Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:04:11.2221769Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:04:11.2222068Z ##[endgroup]
+2026-11-13T10:04:11.2361510Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-13T10:04:11.2362222Z Creating virtual environment at: .venv
+2026-11-13T10:04:11.2369146Z Activate with: .venv/bin/activate
+2026-11-13T10:04:11.6755885Z Resolved 10 packages in 384ms
+2026-11-13T10:04:11.6879944Z Downloading sympy (6.0MiB)
+2026-11-13T10:04:11.6881197Z Downloading networkx (2.0MiB)
+2026-11-13T10:04:11.6889859Z Downloading torch (187.2MiB)
+2026-11-13T10:04:11.6936174Z Downloading setuptools (1.2MiB)
+2026-11-13T10:04:11.7809251Z  Downloaded setuptools
+2026-11-13T10:04:11.8078506Z  Downloaded networkx
+2026-11-13T10:04:11.8978038Z  Downloaded sympy
+2026-11-13T10:04:13.5926418Z  Downloaded torch
+2026-11-13T10:04:13.5929179Z Prepared 10 packages in 1.91s
+2026-11-13T10:04:13.8198549Z Installed 10 packages in 226ms
+2026-11-13T10:04:13.8199036Z  + filelock==4.2.4
+2026-11-13T10:04:13.8200517Z  + fsspec==2026.9.0
+2026-11-13T10:04:13.8200907Z  + jinja2==3.1.6
+2026-11-13T10:04:13.8201279Z  + markupsafe==3.0.3
+2026-11-13T10:04:13.8201973Z  + mpmath==1.3.0
+2026-11-13T10:04:13.8202318Z  + networkx==3.7
+2026-11-13T10:04:13.8202865Z  + setuptools==78.1.0
+2026-11-13T10:04:13.8203235Z  + sympy==1.14.0
+2026-11-13T10:04:13.8203595Z  + torch==2.14.0+cpu
+2026-11-13T10:04:13.8203979Z  + typing-extensions==4.16.0
+2026-11-13T10:04:14.2711311Z Resolved 12 packages in 438ms
+2026-11-13T10:04:14.3182744Z Downloading pygments (1.2MiB)
+2026-11-13T10:04:14.3183758Z Downloading numpy (16.0MiB)
+2026-11-13T10:04:14.3188260Z Downloading hypothesis (1.1MiB)
+2026-11-13T10:04:14.3191800Z Downloading ruff (10.9MiB)
+2026-11-13T10:04:14.3895706Z  Downloaded hypothesis
+2026-11-13T10:04:14.3991152Z  Downloaded pygments
+2026-11-13T10:04:14.4879015Z  Downloaded ruff
+2026-11-13T10:04:14.5648751Z  Downloaded numpy
+2026-11-13T10:04:14.5651002Z Prepared 12 packages in 293ms
+2026-11-13T10:04:14.5852201Z Installed 12 packages in 19ms
+2026-11-13T10:04:14.5852866Z  + expecttest==0.3.0
+2026-11-13T10:04:14.5853275Z  + hypothesis==6.170.15
+2026-11-13T10:04:14.5853716Z  + iniconfig==2.3.1
+2026-11-13T10:04:14.5854108Z  + numpy==2.5.4
+2026-11-13T10:04:14.5854484Z  + packaging==26.3
+2026-11-13T10:04:14.5854855Z  + pluggy==1.7.0
+2026-11-13T10:04:14.5855462Z  + psutil==7.2.2
+2026-11-13T10:04:14.5855842Z  + pygments==2.21.0
+2026-11-13T10:04:14.5856207Z  + pytest==9.2.0
+2026-11-13T10:04:14.5856560Z  + ruff==0.11.6
+2026-11-13T10:04:14.5856847Z  + safetensors==0.8.0
+2026-11-13T10:04:14.5857094Z  + sortedcontainers==2.4.0
+2026-11-13T10:04:14.5951660Z ##[group]Run .venv/bin/python validation/run_restored_lr.py
+2026-11-13T10:04:14.5952140Z [36;1m.venv/bin/python validation/run_restored_lr.py[0m
+2026-11-13T10:04:14.5973424Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:04:14.5973678Z env:
+2026-11-13T10:04:14.5973868Z   OMP_NUM_THREADS: 2
+2026-11-13T10:04:14.5974106Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:04:14.5974352Z   MAX_JOBS: 2
+2026-11-13T10:04:14.5974548Z   PYTHONPATH: .
+2026-11-13T10:04:14.5974822Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:14.5975547Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:04:14.5976004Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:14.5976391Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:14.5976768Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:04:14.5977167Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:04:14.5977571Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:04:14.5977869Z ##[endgroup]
+2026-11-13T10:04:14.9153950Z From https://github.com/Afloat16/ao
+2026-11-13T10:04:14.9154391Z  * branch            a724e78b166c828a81d858b029daf4e4f4011a27 -> FETCH_HEAD
+2026-11-13T10:04:14.9154852Z  * branch            49d23b3410c6870bab011b5f6d9e4b3c1e3d927b -> FETCH_HEAD
+2026-11-13T10:04:18.3040784Z Native PyTorch 2.14.0+cpu /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/__init__.py
+2026-11-13T10:05:05.3208484Z FFFFFFFFFFFFFFFFFFFFFFFF......FFFFFF                                     [100%]
+2026-11-13T10:05:05.3209278Z =================================== FAILURES ===================================
+2026-11-13T10:05:05.3238799Z _________ test_restore_native_scalar_lr[default_dtype0-False-Adam8bit] _________
+2026-11-13T10:05:05.3239356Z 
+2026-11-13T10:05:05.3239686Z optim_name = 'Adam8bit', amsgrad = False, default_dtype = torch.float32
+2026-11-13T10:05:05.3240826Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_0')
+2026-11-13T10:05:05.3241438Z 
+2026-11-13T10:05:05.3241699Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3242334Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3243071Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3243972Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3244683Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3245676Z         reference = _model()
+2026-11-13T10:05:05.3246067Z         native_cls = (
+2026-11-13T10:05:05.3246648Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3247294Z         )
+2026-11-13T10:05:05.3247811Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3248272Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3248593Z         for _ in range(2):
+2026-11-13T10:05:05.3248852Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3249168Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3249432Z         torch.save(
+2026-11-13T10:05:05.3249765Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3250156Z         )
+2026-11-13T10:05:05.3250404Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3250714Z         resumed = _model()
+2026-11-13T10:05:05.3250987Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3251347Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3251705Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3251985Z         try:
+2026-11-13T10:05:05.3252202Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3252537Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3253048Z         finally:
+2026-11-13T10:05:05.3253294Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3253566Z     
+2026-11-13T10:05:05.3253764Z         for group, original in zip(
+2026-11-13T10:05:05.3254116Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3254471Z         ):
+2026-11-13T10:05:05.3254706Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3255020Z E           AssertionError: assert False
+2026-11-13T10:05:05.3255723Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3256421Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3256783Z 
+2026-11-13T10:05:05.3256937Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3257371Z ________ test_restore_native_scalar_lr[default_dtype0-False-AdamW8bit] _________
+2026-11-13T10:05:05.3257671Z 
+2026-11-13T10:05:05.3257876Z optim_name = 'AdamW8bit', amsgrad = False, default_dtype = torch.float32
+2026-11-13T10:05:05.3258411Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_1')
+2026-11-13T10:05:05.3258756Z 
+2026-11-13T10:05:05.3258896Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3259258Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3259688Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3260217Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3260637Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3260882Z         reference = _model()
+2026-11-13T10:05:05.3261114Z         native_cls = (
+2026-11-13T10:05:05.3261452Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3261831Z         )
+2026-11-13T10:05:05.3262144Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3262584Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3262901Z         for _ in range(2):
+2026-11-13T10:05:05.3263155Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3263460Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3263713Z         torch.save(
+2026-11-13T10:05:05.3264027Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3264394Z         )
+2026-11-13T10:05:05.3264622Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3265091Z         resumed = _model()
+2026-11-13T10:05:05.3265615Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3266312Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3266944Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3267318Z         try:
+2026-11-13T10:05:05.3267534Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3267871Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3268172Z         finally:
+2026-11-13T10:05:05.3268400Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3268674Z     
+2026-11-13T10:05:05.3268865Z         for group, original in zip(
+2026-11-13T10:05:05.3269220Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3269573Z         ):
+2026-11-13T10:05:05.3269801Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3270114Z E           AssertionError: assert False
+2026-11-13T10:05:05.3270444Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3270817Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3271041Z 
+2026-11-13T10:05:05.3271179Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3271862Z _________ test_restore_native_scalar_lr[default_dtype0-False-Adam4bit] _________
+2026-11-13T10:05:05.3272182Z 
+2026-11-13T10:05:05.3272371Z optim_name = 'Adam4bit', amsgrad = False, default_dtype = torch.float32
+2026-11-13T10:05:05.3272879Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_2')
+2026-11-13T10:05:05.3273207Z 
+2026-11-13T10:05:05.3273354Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3273715Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3274142Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3274674Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3275086Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3275622Z         reference = _model()
+2026-11-13T10:05:05.3275858Z         native_cls = (
+2026-11-13T10:05:05.3276200Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3276577Z         )
+2026-11-13T10:05:05.3276892Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3277331Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3277644Z         for _ in range(2):
+2026-11-13T10:05:05.3277893Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3278196Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3278451Z         torch.save(
+2026-11-13T10:05:05.3278767Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3279146Z         )
+2026-11-13T10:05:05.3279374Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3279670Z         resumed = _model()
+2026-11-13T10:05:05.3279927Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3280279Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3280632Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3280914Z         try:
+2026-11-13T10:05:05.3281129Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3281462Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3281766Z         finally:
+2026-11-13T10:05:05.3281995Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3282266Z     
+2026-11-13T10:05:05.3282452Z         for group, original in zip(
+2026-11-13T10:05:05.3282811Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3283158Z         ):
+2026-11-13T10:05:05.3283519Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3283830Z E           AssertionError: assert False
+2026-11-13T10:05:05.3284165Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3284544Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3284761Z 
+2026-11-13T10:05:05.3284908Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3285585Z ________ test_restore_native_scalar_lr[default_dtype0-False-AdamW4bit] _________
+2026-11-13T10:05:05.3285905Z 
+2026-11-13T10:05:05.3286092Z optim_name = 'AdamW4bit', amsgrad = False, default_dtype = torch.float32
+2026-11-13T10:05:05.3286609Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_3')
+2026-11-13T10:05:05.3287037Z 
+2026-11-13T10:05:05.3287292Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3287933Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3288707Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3289641Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3290366Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3290857Z         reference = _model()
+2026-11-13T10:05:05.3291161Z         native_cls = (
+2026-11-13T10:05:05.3291681Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3292070Z         )
+2026-11-13T10:05:05.3292380Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3292825Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3293143Z         for _ in range(2):
+2026-11-13T10:05:05.3293395Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3293690Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3293941Z         torch.save(
+2026-11-13T10:05:05.3294265Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3294633Z         )
+2026-11-13T10:05:05.3294867Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3295411Z         resumed = _model()
+2026-11-13T10:05:05.3295768Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3296121Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3296483Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3296762Z         try:
+2026-11-13T10:05:05.3296977Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3297309Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3297616Z         finally:
+2026-11-13T10:05:05.3297848Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3298121Z     
+2026-11-13T10:05:05.3298315Z         for group, original in zip(
+2026-11-13T10:05:05.3298666Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3299022Z         ):
+2026-11-13T10:05:05.3299251Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3299558Z E           AssertionError: assert False
+2026-11-13T10:05:05.3299885Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3300257Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3300481Z 
+2026-11-13T10:05:05.3300630Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3301058Z _________ test_restore_native_scalar_lr[default_dtype0-False-AdamFp8] __________
+2026-11-13T10:05:05.3301357Z 
+2026-11-13T10:05:05.3301538Z optim_name = 'AdamFp8', amsgrad = False, default_dtype = torch.float32
+2026-11-13T10:05:05.3302039Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_4')
+2026-11-13T10:05:05.3302376Z 
+2026-11-13T10:05:05.3302523Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3303022Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3303442Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3303966Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3304374Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3304616Z         reference = _model()
+2026-11-13T10:05:05.3304850Z         native_cls = (
+2026-11-13T10:05:05.3305433Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3305837Z         )
+2026-11-13T10:05:05.3306136Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3306567Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3306879Z         for _ in range(2):
+2026-11-13T10:05:05.3307141Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3307435Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3307694Z         torch.save(
+2026-11-13T10:05:05.3308006Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3308367Z         )
+2026-11-13T10:05:05.3308599Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3308892Z         resumed = _model()
+2026-11-13T10:05:05.3309146Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3309620Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3309979Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3310257Z         try:
+2026-11-13T10:05:05.3310471Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3310802Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3311106Z         finally:
+2026-11-13T10:05:05.3311333Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3311604Z     
+2026-11-13T10:05:05.3311800Z         for group, original in zip(
+2026-11-13T10:05:05.3312147Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3312497Z         ):
+2026-11-13T10:05:05.3312729Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3313141Z E           AssertionError: assert False
+2026-11-13T10:05:05.3313469Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3313845Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3314067Z 
+2026-11-13T10:05:05.3314202Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3314634Z _________ test_restore_native_scalar_lr[default_dtype0-False-AdamWFp8] _________
+2026-11-13T10:05:05.3314929Z 
+2026-11-13T10:05:05.3315112Z optim_name = 'AdamWFp8', amsgrad = False, default_dtype = torch.float32
+2026-11-13T10:05:05.3315908Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_5')
+2026-11-13T10:05:05.3316255Z 
+2026-11-13T10:05:05.3316396Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3316755Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3317179Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3317694Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3318107Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3318353Z         reference = _model()
+2026-11-13T10:05:05.3318582Z         native_cls = (
+2026-11-13T10:05:05.3318916Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3319287Z         )
+2026-11-13T10:05:05.3319587Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3320022Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3320331Z         for _ in range(2):
+2026-11-13T10:05:05.3320582Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3321029Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3321279Z         torch.save(
+2026-11-13T10:05:05.3321596Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3321958Z         )
+2026-11-13T10:05:05.3322186Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3322483Z         resumed = _model()
+2026-11-13T10:05:05.3322740Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3323090Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3323441Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3323716Z         try:
+2026-11-13T10:05:05.3323935Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3324268Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3324569Z         finally:
+2026-11-13T10:05:05.3324798Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3325071Z     
+2026-11-13T10:05:05.3325408Z         for group, original in zip(
+2026-11-13T10:05:05.3325760Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3326111Z         ):
+2026-11-13T10:05:05.3326336Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3326643Z E           AssertionError: assert False
+2026-11-13T10:05:05.3327095Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3327472Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3327686Z 
+2026-11-13T10:05:05.3327831Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3328256Z _________ test_restore_native_scalar_lr[default_dtype0-True-Adam8bit] __________
+2026-11-13T10:05:05.3328555Z 
+2026-11-13T10:05:05.3328727Z optim_name = 'Adam8bit', amsgrad = True, default_dtype = torch.float32
+2026-11-13T10:05:05.3329220Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_6')
+2026-11-13T10:05:05.3329559Z 
+2026-11-13T10:05:05.3329698Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3330058Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3330476Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3330993Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3331395Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3331637Z         reference = _model()
+2026-11-13T10:05:05.3331863Z         native_cls = (
+2026-11-13T10:05:05.3332195Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3332573Z         )
+2026-11-13T10:05:05.3332875Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3333312Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3333627Z         for _ in range(2):
+2026-11-13T10:05:05.3333881Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3334174Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3334422Z         torch.save(
+2026-11-13T10:05:05.3334731Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3335093Z         )
+2026-11-13T10:05:05.3335458Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3335765Z         resumed = _model()
+2026-11-13T10:05:05.3336025Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3336376Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3336725Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3336996Z         try:
+2026-11-13T10:05:05.3337210Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3337541Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3338481Z         finally:
+2026-11-13T10:05:05.3338892Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3339459Z     
+2026-11-13T10:05:05.3339803Z         for group, original in zip(
+2026-11-13T10:05:05.3340452Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3340833Z         ):
+2026-11-13T10:05:05.3341065Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3341389Z E           AssertionError: assert False
+2026-11-13T10:05:05.3341720Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3342091Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3342310Z 
+2026-11-13T10:05:05.3342458Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3342887Z _________ test_restore_native_scalar_lr[default_dtype0-True-AdamW8bit] _________
+2026-11-13T10:05:05.3343191Z 
+2026-11-13T10:05:05.3343370Z optim_name = 'AdamW8bit', amsgrad = True, default_dtype = torch.float32
+2026-11-13T10:05:05.3343887Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_7')
+2026-11-13T10:05:05.3344221Z 
+2026-11-13T10:05:05.3344367Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3344722Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3345144Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3346175Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3346599Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3346841Z         reference = _model()
+2026-11-13T10:05:05.3347065Z         native_cls = (
+2026-11-13T10:05:05.3347400Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3347776Z         )
+2026-11-13T10:05:05.3348083Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3348520Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3348836Z         for _ in range(2):
+2026-11-13T10:05:05.3349086Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3349381Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3349631Z         torch.save(
+2026-11-13T10:05:05.3349943Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3350313Z         )
+2026-11-13T10:05:05.3350544Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3350849Z         resumed = _model()
+2026-11-13T10:05:05.3351104Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3351460Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3351807Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3352074Z         try:
+2026-11-13T10:05:05.3352286Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3352619Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3352920Z         finally:
+2026-11-13T10:05:05.3353139Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3353403Z     
+2026-11-13T10:05:05.3353590Z         for group, original in zip(
+2026-11-13T10:05:05.3353961Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3354315Z         ):
+2026-11-13T10:05:05.3354548Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3354861Z E           AssertionError: assert False
+2026-11-13T10:05:05.3355444Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3355853Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3356104Z 
+2026-11-13T10:05:05.3356244Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3356673Z _________ test_restore_native_scalar_lr[default_dtype0-True-Adam4bit] __________
+2026-11-13T10:05:05.3357120Z 
+2026-11-13T10:05:05.3357304Z optim_name = 'Adam4bit', amsgrad = True, default_dtype = torch.float32
+2026-11-13T10:05:05.3357802Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_8')
+2026-11-13T10:05:05.3358128Z 
+2026-11-13T10:05:05.3358271Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3358625Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3359049Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3359563Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3359968Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3360203Z         reference = _model()
+2026-11-13T10:05:05.3360434Z         native_cls = (
+2026-11-13T10:05:05.3360762Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3361134Z         )
+2026-11-13T10:05:05.3361443Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3361878Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3362189Z         for _ in range(2):
+2026-11-13T10:05:05.3362441Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3362747Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3363000Z         torch.save(
+2026-11-13T10:05:05.3363492Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3363862Z         )
+2026-11-13T10:05:05.3364092Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3364388Z         resumed = _model()
+2026-11-13T10:05:05.3364643Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3364995Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3365588Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3365868Z         try:
+2026-11-13T10:05:05.3366091Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3366428Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3366742Z         finally:
+2026-11-13T10:05:05.3366970Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3367244Z     
+2026-11-13T10:05:05.3367440Z         for group, original in zip(
+2026-11-13T10:05:05.3367795Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3368146Z         ):
+2026-11-13T10:05:05.3368372Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3368677Z E           AssertionError: assert False
+2026-11-13T10:05:05.3369008Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3369394Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3369608Z 
+2026-11-13T10:05:05.3369753Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3370189Z _________ test_restore_native_scalar_lr[default_dtype0-True-AdamW4bit] _________
+2026-11-13T10:05:05.3370491Z 
+2026-11-13T10:05:05.3370676Z optim_name = 'AdamW4bit', amsgrad = True, default_dtype = torch.float32
+2026-11-13T10:05:05.3371180Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_9')
+2026-11-13T10:05:05.3371513Z 
+2026-11-13T10:05:05.3371654Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3372014Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3372441Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3372957Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3373355Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3373592Z         reference = _model()
+2026-11-13T10:05:05.3373822Z         native_cls = (
+2026-11-13T10:05:05.3374149Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3374654Z         )
+2026-11-13T10:05:05.3374957Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3375532Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3375851Z         for _ in range(2):
+2026-11-13T10:05:05.3376102Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3376395Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3376653Z         torch.save(
+2026-11-13T10:05:05.3376963Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3377324Z         )
+2026-11-13T10:05:05.3377555Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3377853Z         resumed = _model()
+2026-11-13T10:05:05.3378112Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3378464Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3378829Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3379104Z         try:
+2026-11-13T10:05:05.3379320Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3379651Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3379958Z         finally:
+2026-11-13T10:05:05.3380185Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3380454Z     
+2026-11-13T10:05:05.3380763Z         for group, original in zip(
+2026-11-13T10:05:05.3381118Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3381474Z         ):
+2026-11-13T10:05:05.3381704Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3382012Z E           AssertionError: assert False
+2026-11-13T10:05:05.3382339Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3382711Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3382926Z 
+2026-11-13T10:05:05.3383076Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3383499Z __________ test_restore_native_scalar_lr[default_dtype0-True-AdamFp8] __________
+2026-11-13T10:05:05.3383802Z 
+2026-11-13T10:05:05.3383986Z optim_name = 'AdamFp8', amsgrad = True, default_dtype = torch.float32
+2026-11-13T10:05:05.3384484Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_10')
+2026-11-13T10:05:05.3384823Z 
+2026-11-13T10:05:05.3384970Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3385611Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3386060Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3386581Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3386988Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3387231Z         reference = _model()
+2026-11-13T10:05:05.3387454Z         native_cls = (
+2026-11-13T10:05:05.3387792Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3388176Z         )
+2026-11-13T10:05:05.3388481Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3388913Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3389228Z         for _ in range(2):
+2026-11-13T10:05:05.3389487Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3389787Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3390039Z         torch.save(
+2026-11-13T10:05:05.3390356Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3390723Z         )
+2026-11-13T10:05:05.3390954Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3391257Z         resumed = _model()
+2026-11-13T10:05:05.3391511Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3391864Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3392355Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3392632Z         try:
+2026-11-13T10:05:05.3392848Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3393186Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3393490Z         finally:
+2026-11-13T10:05:05.3393718Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3393996Z     
+2026-11-13T10:05:05.3394191Z         for group, original in zip(
+2026-11-13T10:05:05.3394543Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3394894Z         ):
+2026-11-13T10:05:05.3395127Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3395716Z E           AssertionError: assert False
+2026-11-13T10:05:05.3396052Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3396428Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3396659Z 
+2026-11-13T10:05:05.3396804Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3397256Z _________ test_restore_native_scalar_lr[default_dtype0-True-AdamWFp8] __________
+2026-11-13T10:05:05.3397558Z 
+2026-11-13T10:05:05.3397744Z optim_name = 'AdamWFp8', amsgrad = True, default_dtype = torch.float32
+2026-11-13T10:05:05.3398378Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_11')
+2026-11-13T10:05:05.3398723Z 
+2026-11-13T10:05:05.3398872Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3399231Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3399659Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3400178Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3400591Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3400843Z         reference = _model()
+2026-11-13T10:05:05.3401074Z         native_cls = (
+2026-11-13T10:05:05.3401405Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3401785Z         )
+2026-11-13T10:05:05.3402093Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3402525Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3402846Z         for _ in range(2):
+2026-11-13T10:05:05.3403097Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3403395Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3403654Z         torch.save(
+2026-11-13T10:05:05.3404000Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3404365Z         )
+2026-11-13T10:05:05.3404597Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3404896Z         resumed = _model()
+2026-11-13T10:05:05.3405156Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3405661Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3406021Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3406300Z         try:
+2026-11-13T10:05:05.3406521Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3406851Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3407163Z         finally:
+2026-11-13T10:05:05.3407391Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3407663Z     
+2026-11-13T10:05:05.3407856Z         for group, original in zip(
+2026-11-13T10:05:05.3408206Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3408560Z         ):
+2026-11-13T10:05:05.3408786Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3409093Z E           AssertionError: assert False
+2026-11-13T10:05:05.3409432Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3409935Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3410157Z 
+2026-11-13T10:05:05.3410303Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3410741Z _________ test_restore_native_scalar_lr[default_dtype1-False-Adam8bit] _________
+2026-11-13T10:05:05.3411053Z 
+2026-11-13T10:05:05.3411241Z optim_name = 'Adam8bit', amsgrad = False, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3411755Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_12')
+2026-11-13T10:05:05.3412095Z 
+2026-11-13T10:05:05.3412235Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3412608Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3413040Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3413562Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3413982Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3414227Z         reference = _model()
+2026-11-13T10:05:05.3414456Z         native_cls = (
+2026-11-13T10:05:05.3414788Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3415286Z         )
+2026-11-13T10:05:05.3415595Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3416149Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3416472Z         for _ in range(2):
+2026-11-13T10:05:05.3416720Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3417019Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3417271Z         torch.save(
+2026-11-13T10:05:05.3417586Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3417949Z         )
+2026-11-13T10:05:05.3418180Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3418488Z         resumed = _model()
+2026-11-13T10:05:05.3418744Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3419100Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3419453Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3419731Z         try:
+2026-11-13T10:05:05.3419943Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3420284Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3420586Z         finally:
+2026-11-13T10:05:05.3420812Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3421080Z     
+2026-11-13T10:05:05.3421270Z         for group, original in zip(
+2026-11-13T10:05:05.3421624Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3421974Z         ):
+2026-11-13T10:05:05.3422200Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3422507Z E           AssertionError: assert False
+2026-11-13T10:05:05.3422842Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3423222Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3423440Z 
+2026-11-13T10:05:05.3423578Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3424004Z ________ test_restore_native_scalar_lr[default_dtype1-False-AdamW8bit] _________
+2026-11-13T10:05:05.3424310Z 
+2026-11-13T10:05:05.3424501Z optim_name = 'AdamW8bit', amsgrad = False, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3425014Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_13')
+2026-11-13T10:05:05.3425606Z 
+2026-11-13T10:05:05.3425755Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3426109Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3426536Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3427193Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3427599Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3427839Z         reference = _model()
+2026-11-13T10:05:05.3428068Z         native_cls = (
+2026-11-13T10:05:05.3428406Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3428780Z         )
+2026-11-13T10:05:05.3429085Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3429520Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3429831Z         for _ in range(2):
+2026-11-13T10:05:05.3430081Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3430377Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3430623Z         torch.save(
+2026-11-13T10:05:05.3430936Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3431311Z         )
+2026-11-13T10:05:05.3431542Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3431838Z         resumed = _model()
+2026-11-13T10:05:05.3432090Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3432440Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3432792Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3433066Z         try:
+2026-11-13T10:05:05.3433392Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3433726Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3434037Z         finally:
+2026-11-13T10:05:05.3434263Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3434536Z     
+2026-11-13T10:05:05.3434728Z         for group, original in zip(
+2026-11-13T10:05:05.3435075Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3435692Z         ):
+2026-11-13T10:05:05.3435931Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3436236Z E           AssertionError: assert False
+2026-11-13T10:05:05.3436563Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3436939Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3437158Z 
+2026-11-13T10:05:05.3437304Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3437735Z _________ test_restore_native_scalar_lr[default_dtype1-False-Adam4bit] _________
+2026-11-13T10:05:05.3438032Z 
+2026-11-13T10:05:05.3438218Z optim_name = 'Adam4bit', amsgrad = False, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3438723Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_14')
+2026-11-13T10:05:05.3439062Z 
+2026-11-13T10:05:05.3439199Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3439550Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3439981Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3440504Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3440908Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3441144Z         reference = _model()
+2026-11-13T10:05:05.3441372Z         native_cls = (
+2026-11-13T10:05:05.3441707Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3442085Z         )
+2026-11-13T10:05:05.3442385Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3442821Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3443130Z         for _ in range(2):
+2026-11-13T10:05:05.3443386Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3443681Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3443932Z         torch.save(
+2026-11-13T10:05:05.3444242Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3444746Z         )
+2026-11-13T10:05:05.3444977Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3445534Z         resumed = _model()
+2026-11-13T10:05:05.3445796Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3446146Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3446504Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3446786Z         try:
+2026-11-13T10:05:05.3447000Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3447330Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3447734Z         finally:
+2026-11-13T10:05:05.3447960Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3448234Z     
+2026-11-13T10:05:05.3448428Z         for group, original in zip(
+2026-11-13T10:05:05.3448776Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3449130Z         ):
+2026-11-13T10:05:05.3449361Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3449667Z E           AssertionError: assert False
+2026-11-13T10:05:05.3449994Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3450364Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3450577Z 
+2026-11-13T10:05:05.3450854Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3451290Z ________ test_restore_native_scalar_lr[default_dtype1-False-AdamW4bit] _________
+2026-11-13T10:05:05.3451591Z 
+2026-11-13T10:05:05.3451774Z optim_name = 'AdamW4bit', amsgrad = False, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3452284Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_15')
+2026-11-13T10:05:05.3452624Z 
+2026-11-13T10:05:05.3452765Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3453119Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3453541Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3454059Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3454464Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3454708Z         reference = _model()
+2026-11-13T10:05:05.3454937Z         native_cls = (
+2026-11-13T10:05:05.3455446Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3455839Z         )
+2026-11-13T10:05:05.3456168Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3456607Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3456924Z         for _ in range(2):
+2026-11-13T10:05:05.3457177Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3457478Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3457731Z         torch.save(
+2026-11-13T10:05:05.3458043Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3458409Z         )
+2026-11-13T10:05:05.3458634Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3458940Z         resumed = _model()
+2026-11-13T10:05:05.3459193Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3459547Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3459900Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3460175Z         try:
+2026-11-13T10:05:05.3460391Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3460723Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3461028Z         finally:
+2026-11-13T10:05:05.3461255Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3461523Z     
+2026-11-13T10:05:05.3461719Z         for group, original in zip(
+2026-11-13T10:05:05.3462190Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3462535Z         ):
+2026-11-13T10:05:05.3462760Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3463070Z E           AssertionError: assert False
+2026-11-13T10:05:05.3463399Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3463777Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3463995Z 
+2026-11-13T10:05:05.3464135Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3464567Z _________ test_restore_native_scalar_lr[default_dtype1-False-AdamFp8] __________
+2026-11-13T10:05:05.3464865Z 
+2026-11-13T10:05:05.3465049Z optim_name = 'AdamFp8', amsgrad = False, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3465826Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_16')
+2026-11-13T10:05:05.3466161Z 
+2026-11-13T10:05:05.3466311Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3466662Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3467085Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3467596Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3468174Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3468724Z         reference = _model()
+2026-11-13T10:05:05.3469076Z         native_cls = (
+2026-11-13T10:05:05.3469574Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3470059Z         )
+2026-11-13T10:05:05.3470536Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3471131Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3471545Z         for _ in range(2):
+2026-11-13T10:05:05.3471943Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3472353Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3472698Z         torch.save(
+2026-11-13T10:05:05.3473206Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3473675Z         )
+2026-11-13T10:05:05.3474088Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3474476Z         resumed = _model()
+2026-11-13T10:05:05.3484414Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3484823Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3485393Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3485697Z         try:
+2026-11-13T10:05:05.3485927Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3486276Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3486596Z         finally:
+2026-11-13T10:05:05.3486836Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3487121Z     
+2026-11-13T10:05:05.3487316Z         for group, original in zip(
+2026-11-13T10:05:05.3487671Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3488027Z         ):
+2026-11-13T10:05:05.3488257Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3488574Z E           AssertionError: assert False
+2026-11-13T10:05:05.3488908Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3489285Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3489502Z 
+2026-11-13T10:05:05.3489650Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3490079Z _________ test_restore_native_scalar_lr[default_dtype1-False-AdamWFp8] _________
+2026-11-13T10:05:05.3490385Z 
+2026-11-13T10:05:05.3490566Z optim_name = 'AdamWFp8', amsgrad = False, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3491083Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_17')
+2026-11-13T10:05:05.3491610Z 
+2026-11-13T10:05:05.3491759Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3492114Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3492542Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3493059Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3493472Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3493717Z         reference = _model()
+2026-11-13T10:05:05.3493945Z         native_cls = (
+2026-11-13T10:05:05.3494277Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3494656Z         )
+2026-11-13T10:05:05.3494973Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3495559Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3495883Z         for _ in range(2):
+2026-11-13T10:05:05.3496139Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3496435Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3496688Z         torch.save(
+2026-11-13T10:05:05.3497018Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3497401Z         )
+2026-11-13T10:05:05.3497634Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3498050Z         resumed = _model()
+2026-11-13T10:05:05.3498316Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3498666Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3499026Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3499311Z         try:
+2026-11-13T10:05:05.3499531Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3499869Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3500183Z         finally:
+2026-11-13T10:05:05.3500413Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3500686Z     
+2026-11-13T10:05:05.3500890Z         for group, original in zip(
+2026-11-13T10:05:05.3501240Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3501593Z         ):
+2026-11-13T10:05:05.3501816Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3502128Z E           AssertionError: assert False
+2026-11-13T10:05:05.3502455Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3502826Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3503044Z 
+2026-11-13T10:05:05.3503184Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3503610Z _________ test_restore_native_scalar_lr[default_dtype1-True-Adam8bit] __________
+2026-11-13T10:05:05.3503911Z 
+2026-11-13T10:05:05.3504092Z optim_name = 'Adam8bit', amsgrad = True, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3504698Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_18')
+2026-11-13T10:05:05.3505033Z 
+2026-11-13T10:05:05.3505179Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3505794Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3506220Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3506738Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3507139Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3507385Z         reference = _model()
+2026-11-13T10:05:05.3507613Z         native_cls = (
+2026-11-13T10:05:05.3507941Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3508317Z         )
+2026-11-13T10:05:05.3508617Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3509188Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3509503Z         for _ in range(2):
+2026-11-13T10:05:05.3509757Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3510053Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3510309Z         torch.save(
+2026-11-13T10:05:05.3510630Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3510993Z         )
+2026-11-13T10:05:05.3511231Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3511530Z         resumed = _model()
+2026-11-13T10:05:05.3511781Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3512131Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3512482Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3512756Z         try:
+2026-11-13T10:05:05.3512972Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3513321Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3513630Z         finally:
+2026-11-13T10:05:05.3513858Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3514131Z     
+2026-11-13T10:05:05.3514323Z         for group, original in zip(
+2026-11-13T10:05:05.3514680Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3515030Z         ):
+2026-11-13T10:05:05.3515658Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3515990Z E           AssertionError: assert False
+2026-11-13T10:05:05.3516326Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3516705Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3516921Z 
+2026-11-13T10:05:05.3517066Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3517495Z _________ test_restore_native_scalar_lr[default_dtype1-True-AdamW8bit] _________
+2026-11-13T10:05:05.3517795Z 
+2026-11-13T10:05:05.3517980Z optim_name = 'AdamW8bit', amsgrad = True, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3518490Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_19')
+2026-11-13T10:05:05.3518831Z 
+2026-11-13T10:05:05.3518968Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3519322Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3519754Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3520266Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3520669Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3520907Z         reference = _model()
+2026-11-13T10:05:05.3521136Z         native_cls = (
+2026-11-13T10:05:05.3521464Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3521835Z         )
+2026-11-13T10:05:05.3522134Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3522564Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3522879Z         for _ in range(2):
+2026-11-13T10:05:05.3523127Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3523417Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3523668Z         torch.save(
+2026-11-13T10:05:05.3523984Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3524345Z         )
+2026-11-13T10:05:05.3524571Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3524869Z         resumed = _model()
+2026-11-13T10:05:05.3525119Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3525740Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3526092Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3526357Z         try:
+2026-11-13T10:05:05.3526741Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3527064Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3527364Z         finally:
+2026-11-13T10:05:05.3527584Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3527849Z     
+2026-11-13T10:05:05.3528037Z         for group, original in zip(
+2026-11-13T10:05:05.3528385Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3528733Z         ):
+2026-11-13T10:05:05.3528959Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3529264Z E           AssertionError: assert False
+2026-11-13T10:05:05.3529586Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3529958Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3530171Z 
+2026-11-13T10:05:05.3530314Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3530731Z _________ test_restore_native_scalar_lr[default_dtype1-True-Adam4bit] __________
+2026-11-13T10:05:05.3531035Z 
+2026-11-13T10:05:05.3531216Z optim_name = 'Adam4bit', amsgrad = True, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3531718Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_20')
+2026-11-13T10:05:05.3532058Z 
+2026-11-13T10:05:05.3532195Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3532657Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3533084Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3533602Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3534003Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3534239Z         reference = _model()
+2026-11-13T10:05:05.3534463Z         native_cls = (
+2026-11-13T10:05:05.3534791Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3535165Z         )
+2026-11-13T10:05:05.3535611Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3536044Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3536354Z         for _ in range(2):
+2026-11-13T10:05:05.3536606Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3536898Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3537151Z         torch.save(
+2026-11-13T10:05:05.3537466Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3537828Z         )
+2026-11-13T10:05:05.3538056Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3538353Z         resumed = _model()
+2026-11-13T10:05:05.3538601Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3538949Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3539304Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3539581Z         try:
+2026-11-13T10:05:05.3539793Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3540121Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3540425Z         finally:
+2026-11-13T10:05:05.3540646Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3540913Z     
+2026-11-13T10:05:05.3541101Z         for group, original in zip(
+2026-11-13T10:05:05.3541450Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3541798Z         ):
+2026-11-13T10:05:05.3542026Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3542329Z E           AssertionError: assert False
+2026-11-13T10:05:05.3542654Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3543030Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3543246Z 
+2026-11-13T10:05:05.3543509Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3543934Z _________ test_restore_native_scalar_lr[default_dtype1-True-AdamW4bit] _________
+2026-11-13T10:05:05.3544236Z 
+2026-11-13T10:05:05.3544415Z optim_name = 'AdamW4bit', amsgrad = True, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3544922Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_21')
+2026-11-13T10:05:05.3545519Z 
+2026-11-13T10:05:05.3545679Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3546031Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3546451Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3546963Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3547363Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3547607Z         reference = _model()
+2026-11-13T10:05:05.3547834Z         native_cls = (
+2026-11-13T10:05:05.3548167Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3548542Z         )
+2026-11-13T10:05:05.3548842Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3549286Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3549600Z         for _ in range(2):
+2026-11-13T10:05:05.3549849Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3550268Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3550522Z         torch.save(
+2026-11-13T10:05:05.3550834Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3551202Z         )
+2026-11-13T10:05:05.3551432Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3551734Z         resumed = _model()
+2026-11-13T10:05:05.3551987Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3552335Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3552693Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3552974Z         try:
+2026-11-13T10:05:05.3553184Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3553513Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3553815Z         finally:
+2026-11-13T10:05:05.3554045Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3554330Z     
+2026-11-13T10:05:05.3554521Z         for group, original in zip(
+2026-11-13T10:05:05.3554873Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3555479Z         ):
+2026-11-13T10:05:05.3555723Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3556035Z E           AssertionError: assert False
+2026-11-13T10:05:05.3556400Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3556773Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3557004Z 
+2026-11-13T10:05:05.3557145Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3557576Z __________ test_restore_native_scalar_lr[default_dtype1-True-AdamFp8] __________
+2026-11-13T10:05:05.3557871Z 
+2026-11-13T10:05:05.3558050Z optim_name = 'AdamFp8', amsgrad = True, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3558557Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_22')
+2026-11-13T10:05:05.3558891Z 
+2026-11-13T10:05:05.3559033Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3559392Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3559811Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3560331Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3560739Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3560990Z         reference = _model()
+2026-11-13T10:05:05.3561351Z         native_cls = (
+2026-11-13T10:05:05.3561688Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3562064Z         )
+2026-11-13T10:05:05.3562368Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3562801Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3563117Z         for _ in range(2):
+2026-11-13T10:05:05.3563370Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3563667Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3563916Z         torch.save(
+2026-11-13T10:05:05.3564227Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3564587Z         )
+2026-11-13T10:05:05.3564815Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3565111Z         resumed = _model()
+2026-11-13T10:05:05.3565512Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3565875Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3566226Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3566497Z         try:
+2026-11-13T10:05:05.3566711Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3567048Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3567346Z         finally:
+2026-11-13T10:05:05.3567682Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3567956Z     
+2026-11-13T10:05:05.3568146Z         for group, original in zip(
+2026-11-13T10:05:05.3568491Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3568840Z         ):
+2026-11-13T10:05:05.3569061Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3569364Z E           AssertionError: assert False
+2026-11-13T10:05:05.3569695Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3570072Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3570286Z 
+2026-11-13T10:05:05.3570427Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3570848Z _________ test_restore_native_scalar_lr[default_dtype1-True-AdamWFp8] __________
+2026-11-13T10:05:05.3571148Z 
+2026-11-13T10:05:05.3571326Z optim_name = 'AdamWFp8', amsgrad = True, default_dtype = torch.bfloat16
+2026-11-13T10:05:05.3571833Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_native_scalar_lr_23')
+2026-11-13T10:05:05.3572173Z 
+2026-11-13T10:05:05.3572309Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3572661Z     @pytest.mark.parametrize("amsgrad", [False, True])
+2026-11-13T10:05:05.3573084Z     @pytest.mark.parametrize("default_dtype", [torch.float32, torch.bfloat16])
+2026-11-13T10:05:05.3573605Z     def test_restore_native_scalar_lr(optim_name, amsgrad, default_dtype, tmp_path):
+2026-11-13T10:05:05.3574015Z         torch.manual_seed(413)
+2026-11-13T10:05:05.3574253Z         reference = _model()
+2026-11-13T10:05:05.3574476Z         native_cls = (
+2026-11-13T10:05:05.3574805Z             torch.optim.AdamW if optim_name.startswith("AdamW") else torch.optim.Adam
+2026-11-13T10:05:05.3575293Z         )
+2026-11-13T10:05:05.3575602Z         native = native_cls(_groups(reference), amsgrad=amsgrad, weight_decay=0.03)
+2026-11-13T10:05:05.3576041Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3576347Z         for _ in range(2):
+2026-11-13T10:05:05.3576597Z             _step(reference, native, inputs, target)
+2026-11-13T10:05:05.3576885Z         path = tmp_path / "native.pt"
+2026-11-13T10:05:05.3577132Z         torch.save(
+2026-11-13T10:05:05.3577439Z             {"model": reference.state_dict(), "optimizer": native.state_dict()}, path
+2026-11-13T10:05:05.3577795Z         )
+2026-11-13T10:05:05.3578020Z         checkpoint = torch.load(path, weights_only=True)
+2026-11-13T10:05:05.3578436Z         resumed = _model()
+2026-11-13T10:05:05.3578692Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3579040Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3579391Z         previous_dtype = torch.get_default_dtype()
+2026-11-13T10:05:05.3579662Z         try:
+2026-11-13T10:05:05.3579877Z             torch.set_default_dtype(default_dtype)
+2026-11-13T10:05:05.3580208Z             optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3580508Z         finally:
+2026-11-13T10:05:05.3580729Z             torch.set_default_dtype(previous_dtype)
+2026-11-13T10:05:05.3580996Z     
+2026-11-13T10:05:05.3581181Z         for group, original in zip(
+2026-11-13T10:05:05.3581526Z             optimizer.param_groups, checkpoint["optimizer"]["param_groups"]
+2026-11-13T10:05:05.3581873Z         ):
+2026-11-13T10:05:05.3582092Z >           assert isinstance(group["lr"], torch.Tensor)
+2026-11-13T10:05:05.3582394Z E           AssertionError: assert False
+2026-11-13T10:05:05.3582725Z E            +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3583091Z E            +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3583309Z 
+2026-11-13T10:05:05.3583445Z test/test_low_bit_optim_state_dict.py:65: AssertionError
+2026-11-13T10:05:05.3583850Z ________________ test_restore_quantized_state_lr[True-Adam8bit] ________________
+2026-11-13T10:05:05.3584138Z 
+2026-11-13T10:05:05.3584353Z optim_name = 'Adam8bit', scalar_lr = True
+2026-11-13T10:05:05.3584765Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_quantized_state_l6')
+2026-11-13T10:05:05.3585091Z 
+2026-11-13T10:05:05.3585468Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3585832Z     @pytest.mark.parametrize("scalar_lr", [False, True])
+2026-11-13T10:05:05.3586228Z     def test_restore_quantized_state_lr(optim_name, scalar_lr, tmp_path):
+2026-11-13T10:05:05.3586591Z         torch.manual_seed(719)
+2026-11-13T10:05:05.3586831Z         reference = _model()
+2026-11-13T10:05:05.3587180Z         original = getattr(optim, optim_name)(_groups(reference), weight_decay=0.03)
+2026-11-13T10:05:05.3587615Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3587926Z         for _ in range(2):
+2026-11-13T10:05:05.3588173Z             _step(reference, original, inputs, target)
+2026-11-13T10:05:05.3588469Z         saved = original.state_dict()
+2026-11-13T10:05:05.3588723Z         if scalar_lr:
+2026-11-13T10:05:05.3588954Z             for group in saved["param_groups"]:
+2026-11-13T10:05:05.3589241Z                 group["lr"] = group["lr"].item()
+2026-11-13T10:05:05.3589521Z         path = tmp_path / "quantized.pt"
+2026-11-13T10:05:05.3589880Z         torch.save({"model": reference.state_dict(), "optimizer": saved}, path)
+2026-11-13T10:05:05.3590305Z         checkpoint = torch.load(path, weights_only=False)
+2026-11-13T10:05:05.3590609Z         resumed = _model()
+2026-11-13T10:05:05.3590880Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3591239Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3591609Z         optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3591996Z         for source_group, restored_group in zip(
+2026-11-13T10:05:05.3592327Z             original.param_groups, optimizer.param_groups
+2026-11-13T10:05:05.3592618Z         ):
+2026-11-13T10:05:05.3592915Z >           torch.testing.assert_close(restored_group["lr"], source_group["lr"])
+2026-11-13T10:05:05.3593522Z E           TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3593941Z 
+2026-11-13T10:05:05.3594073Z test/test_low_bit_optim_state_dict.py:108: TypeError
+2026-11-13T10:05:05.3594471Z _______________ test_restore_quantized_state_lr[True-AdamW8bit] ________________
+2026-11-13T10:05:05.3594753Z 
+2026-11-13T10:05:05.3594861Z optim_name = 'AdamW8bit', scalar_lr = True
+2026-11-13T10:05:05.3595700Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_quantized_state_l7')
+2026-11-13T10:05:05.3596040Z 
+2026-11-13T10:05:05.3596181Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3596541Z     @pytest.mark.parametrize("scalar_lr", [False, True])
+2026-11-13T10:05:05.3596938Z     def test_restore_quantized_state_lr(optim_name, scalar_lr, tmp_path):
+2026-11-13T10:05:05.3597314Z         torch.manual_seed(719)
+2026-11-13T10:05:05.3597561Z         reference = _model()
+2026-11-13T10:05:05.3597910Z         original = getattr(optim, optim_name)(_groups(reference), weight_decay=0.03)
+2026-11-13T10:05:05.3598355Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3598669Z         for _ in range(2):
+2026-11-13T10:05:05.3598922Z             _step(reference, original, inputs, target)
+2026-11-13T10:05:05.3599222Z         saved = original.state_dict()
+2026-11-13T10:05:05.3599475Z         if scalar_lr:
+2026-11-13T10:05:05.3599711Z             for group in saved["param_groups"]:
+2026-11-13T10:05:05.3600004Z                 group["lr"] = group["lr"].item()
+2026-11-13T10:05:05.3600294Z         path = tmp_path / "quantized.pt"
+2026-11-13T10:05:05.3600656Z         torch.save({"model": reference.state_dict(), "optimizer": saved}, path)
+2026-11-13T10:05:05.3601075Z         checkpoint = torch.load(path, weights_only=False)
+2026-11-13T10:05:05.3601376Z         resumed = _model()
+2026-11-13T10:05:05.3601761Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3602124Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3602499Z         optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3602830Z         for source_group, restored_group in zip(
+2026-11-13T10:05:05.3603158Z             original.param_groups, optimizer.param_groups
+2026-11-13T10:05:05.3603449Z         ):
+2026-11-13T10:05:05.3603738Z >           torch.testing.assert_close(restored_group["lr"], source_group["lr"])
+2026-11-13T10:05:05.3604344Z E           TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3604755Z 
+2026-11-13T10:05:05.3604887Z test/test_low_bit_optim_state_dict.py:108: TypeError
+2026-11-13T10:05:05.3605553Z ________________ test_restore_quantized_state_lr[True-Adam4bit] ________________
+2026-11-13T10:05:05.3605853Z 
+2026-11-13T10:05:05.3605965Z optim_name = 'Adam4bit', scalar_lr = True
+2026-11-13T10:05:05.3606382Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_quantized_state_l8')
+2026-11-13T10:05:05.3606717Z 
+2026-11-13T10:05:05.3606861Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3607217Z     @pytest.mark.parametrize("scalar_lr", [False, True])
+2026-11-13T10:05:05.3607612Z     def test_restore_quantized_state_lr(optim_name, scalar_lr, tmp_path):
+2026-11-13T10:05:05.3607981Z         torch.manual_seed(719)
+2026-11-13T10:05:05.3608218Z         reference = _model()
+2026-11-13T10:05:05.3608575Z         original = getattr(optim, optim_name)(_groups(reference), weight_decay=0.03)
+2026-11-13T10:05:05.3609012Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3609330Z         for _ in range(2):
+2026-11-13T10:05:05.3609583Z             _step(reference, original, inputs, target)
+2026-11-13T10:05:05.3609885Z         saved = original.state_dict()
+2026-11-13T10:05:05.3610136Z         if scalar_lr:
+2026-11-13T10:05:05.3610372Z             for group in saved["param_groups"]:
+2026-11-13T10:05:05.3610662Z                 group["lr"] = group["lr"].item()
+2026-11-13T10:05:05.3610947Z         path = tmp_path / "quantized.pt"
+2026-11-13T10:05:05.3611311Z         torch.save({"model": reference.state_dict(), "optimizer": saved}, path)
+2026-11-13T10:05:05.3611726Z         checkpoint = torch.load(path, weights_only=False)
+2026-11-13T10:05:05.3612024Z         resumed = _model()
+2026-11-13T10:05:05.3612278Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3612773Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3613142Z         optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3613470Z         for source_group, restored_group in zip(
+2026-11-13T10:05:05.3613790Z             original.param_groups, optimizer.param_groups
+2026-11-13T10:05:05.3614076Z         ):
+2026-11-13T10:05:05.3614368Z >           torch.testing.assert_close(restored_group["lr"], source_group["lr"])
+2026-11-13T10:05:05.3614964Z E           TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3615519Z 
+2026-11-13T10:05:05.3615650Z test/test_low_bit_optim_state_dict.py:108: TypeError
+2026-11-13T10:05:05.3615840Z _______________ test_restore_quantized_state_lr[True-AdamW4bit] ________________
+2026-11-13T10:05:05.3615846Z 
+2026-11-13T10:05:05.3615953Z optim_name = 'AdamW4bit', scalar_lr = True
+2026-11-13T10:05:05.3616186Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_quantized_state_l9')
+2026-11-13T10:05:05.3616197Z 
+2026-11-13T10:05:05.3616338Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3616472Z     @pytest.mark.parametrize("scalar_lr", [False, True])
+2026-11-13T10:05:05.3616659Z     def test_restore_quantized_state_lr(optim_name, scalar_lr, tmp_path):
+2026-11-13T10:05:05.3616755Z         torch.manual_seed(719)
+2026-11-13T10:05:05.3616843Z         reference = _model()
+2026-11-13T10:05:05.3617168Z         original = getattr(optim, optim_name)(_groups(reference), weight_decay=0.03)
+2026-11-13T10:05:05.3617311Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3617401Z         for _ in range(2):
+2026-11-13T10:05:05.3617519Z             _step(reference, original, inputs, target)
+2026-11-13T10:05:05.3617621Z         saved = original.state_dict()
+2026-11-13T10:05:05.3617709Z         if scalar_lr:
+2026-11-13T10:05:05.3617817Z             for group in saved["param_groups"]:
+2026-11-13T10:05:05.3617927Z                 group["lr"] = group["lr"].item()
+2026-11-13T10:05:05.3618027Z         path = tmp_path / "quantized.pt"
+2026-11-13T10:05:05.3618218Z         torch.save({"model": reference.state_dict(), "optimizer": saved}, path)
+2026-11-13T10:05:05.3618347Z         checkpoint = torch.load(path, weights_only=False)
+2026-11-13T10:05:05.3618436Z         resumed = _model()
+2026-11-13T10:05:05.3618559Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3618711Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3618849Z         optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3618956Z         for source_group, restored_group in zip(
+2026-11-13T10:05:05.3619087Z             original.param_groups, optimizer.param_groups
+2026-11-13T10:05:05.3619161Z         ):
+2026-11-13T10:05:05.3619358Z >           torch.testing.assert_close(restored_group["lr"], source_group["lr"])
+2026-11-13T10:05:05.3619675Z E           TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3619685Z 
+2026-11-13T10:05:05.3619811Z test/test_low_bit_optim_state_dict.py:108: TypeError
+2026-11-13T10:05:05.3620006Z ________________ test_restore_quantized_state_lr[True-AdamFp8] _________________
+2026-11-13T10:05:05.3620011Z 
+2026-11-13T10:05:05.3620111Z optim_name = 'AdamFp8', scalar_lr = True
+2026-11-13T10:05:05.3620355Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_quantized_state_l10')
+2026-11-13T10:05:05.3620360Z 
+2026-11-13T10:05:05.3620501Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3620637Z     @pytest.mark.parametrize("scalar_lr", [False, True])
+2026-11-13T10:05:05.3620821Z     def test_restore_quantized_state_lr(optim_name, scalar_lr, tmp_path):
+2026-11-13T10:05:05.3620913Z         torch.manual_seed(719)
+2026-11-13T10:05:05.3621008Z         reference = _model()
+2026-11-13T10:05:05.3621210Z         original = getattr(optim, optim_name)(_groups(reference), weight_decay=0.03)
+2026-11-13T10:05:05.3621470Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3621563Z         for _ in range(2):
+2026-11-13T10:05:05.3621679Z             _step(reference, original, inputs, target)
+2026-11-13T10:05:05.3621781Z         saved = original.state_dict()
+2026-11-13T10:05:05.3621863Z         if scalar_lr:
+2026-11-13T10:05:05.3621971Z             for group in saved["param_groups"]:
+2026-11-13T10:05:05.3622075Z                 group["lr"] = group["lr"].item()
+2026-11-13T10:05:05.3622180Z         path = tmp_path / "quantized.pt"
+2026-11-13T10:05:05.3622375Z         torch.save({"model": reference.state_dict(), "optimizer": saved}, path)
+2026-11-13T10:05:05.3622503Z         checkpoint = torch.load(path, weights_only=False)
+2026-11-13T10:05:05.3622591Z         resumed = _model()
+2026-11-13T10:05:05.3622707Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3622858Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3622998Z         optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3623104Z         for source_group, restored_group in zip(
+2026-11-13T10:05:05.3623234Z             original.param_groups, optimizer.param_groups
+2026-11-13T10:05:05.3623305Z         ):
+2026-11-13T10:05:05.3623501Z >           torch.testing.assert_close(restored_group["lr"], source_group["lr"])
+2026-11-13T10:05:05.3623888Z E           TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3623894Z 
+2026-11-13T10:05:05.3624025Z test/test_low_bit_optim_state_dict.py:108: TypeError
+2026-11-13T10:05:05.3624213Z ________________ test_restore_quantized_state_lr[True-AdamWFp8] ________________
+2026-11-13T10:05:05.3624218Z 
+2026-11-13T10:05:05.3624320Z optim_name = 'AdamWFp8', scalar_lr = True
+2026-11-13T10:05:05.3624554Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_restore_quantized_state_l11')
+2026-11-13T10:05:05.3624563Z 
+2026-11-13T10:05:05.3624700Z     @pytest.mark.parametrize("optim_name", _OPTIMIZERS)
+2026-11-13T10:05:05.3624839Z     @pytest.mark.parametrize("scalar_lr", [False, True])
+2026-11-13T10:05:05.3625024Z     def test_restore_quantized_state_lr(optim_name, scalar_lr, tmp_path):
+2026-11-13T10:05:05.3625113Z         torch.manual_seed(719)
+2026-11-13T10:05:05.3625487Z         reference = _model()
+2026-11-13T10:05:05.3625709Z         original = getattr(optim, optim_name)(_groups(reference), weight_decay=0.03)
+2026-11-13T10:05:05.3625854Z         inputs, target = torch.randn(4, 64), torch.randn(4, 8)
+2026-11-13T10:05:05.3625937Z         for _ in range(2):
+2026-11-13T10:05:05.3626059Z             _step(reference, original, inputs, target)
+2026-11-13T10:05:05.3626157Z         saved = original.state_dict()
+2026-11-13T10:05:05.3626236Z         if scalar_lr:
+2026-11-13T10:05:05.3626342Z             for group in saved["param_groups"]:
+2026-11-13T10:05:05.3626439Z                 group["lr"] = group["lr"].item()
+2026-11-13T10:05:05.3626546Z         path = tmp_path / "quantized.pt"
+2026-11-13T10:05:05.3626732Z         torch.save({"model": reference.state_dict(), "optimizer": saved}, path)
+2026-11-13T10:05:05.3626863Z         checkpoint = torch.load(path, weights_only=False)
+2026-11-13T10:05:05.3626949Z         resumed = _model()
+2026-11-13T10:05:05.3627066Z         resumed.load_state_dict(checkpoint["model"])
+2026-11-13T10:05:05.3627225Z         optimizer = getattr(optim, optim_name)(_groups(resumed))
+2026-11-13T10:05:05.3627359Z         optimizer.load_state_dict(checkpoint["optimizer"])
+2026-11-13T10:05:05.3627473Z         for source_group, restored_group in zip(
+2026-11-13T10:05:05.3627601Z             original.param_groups, optimizer.param_groups
+2026-11-13T10:05:05.3627678Z         ):
+2026-11-13T10:05:05.3627872Z >           torch.testing.assert_close(restored_group["lr"], source_group["lr"])
+2026-11-13T10:05:05.3628180Z E           TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3628312Z 
+2026-11-13T10:05:05.3628447Z test/test_low_bit_optim_state_dict.py:108: TypeError
+2026-11-13T10:05:05.3628582Z =============================== warnings summary ===============================
+2026-11-13T10:05:05.3628910Z test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[False-Adam8bit]
+2026-11-13T10:05:05.3630034Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimState8bit does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:05:05.3630113Z     warn_once(
+2026-11-13T10:05:05.3630119Z 
+2026-11-13T10:05:05.3630356Z test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[False-Adam4bit]
+2026-11-13T10:05:05.3631392Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimState4bit does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:05:05.3631475Z     warn_once(
+2026-11-13T10:05:05.3631481Z 
+2026-11-13T10:05:05.3631712Z test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[False-AdamFp8]
+2026-11-13T10:05:05.3632838Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimStateFp8 does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:05:05.3632925Z     warn_once(
+2026-11-13T10:05:05.3632930Z 
+2026-11-13T10:05:05.3633143Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T10:05:05.3633285Z =========================== short test summary info ============================
+2026-11-13T10:05:05.3633707Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-False-Adam8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3633854Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3633969Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3634389Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-False-AdamW8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3634525Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3634641Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3635691Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-False-Adam4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3635957Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3636178Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3636908Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-False-AdamW4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3637170Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3637372Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3638155Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-False-AdamFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3638423Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3638626Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3639367Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-False-AdamWFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3639624Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3639838Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3640872Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-True-Adam8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3641136Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3641334Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3642061Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-True-AdamW8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3642320Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3642512Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3643230Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-True-Adam4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3643475Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3643666Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3644387Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-True-AdamW4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3644620Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3644815Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3646052Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-True-AdamFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3646330Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3646547Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3647283Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype0-True-AdamWFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3647551Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3647772Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3648554Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-False-Adam8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3648812Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3649009Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3649771Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-False-AdamW8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3650018Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3650223Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3650952Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-False-Adam4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3651191Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3651389Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3652143Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-False-AdamW4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3652405Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3652612Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3653324Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-False-AdamFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3653637Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3653839Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3654548Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-False-AdamWFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3654778Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3654992Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3655995Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-True-Adam8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3656666Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3656886Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3657617Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-True-AdamW8bit] - AssertionError: assert False
+2026-11-13T10:05:05.3657891Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3658106Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3658836Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-True-Adam4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3659096Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3659297Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3659992Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-True-AdamW4bit] - AssertionError: assert False
+2026-11-13T10:05:05.3660259Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3660462Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3661201Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-True-AdamFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3661663Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3661886Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3662632Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_native_scalar_lr[default_dtype1-True-AdamWFp8] - AssertionError: assert False
+2026-11-13T10:05:05.3662881Z  +  where False = isinstance(0.001, <class 'torch.Tensor'>)
+2026-11-13T10:05:05.3663087Z  +    where <class 'torch.Tensor'> = torch.Tensor
+2026-11-13T10:05:05.3664209Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[True-Adam8bit] - TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3665607Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[True-AdamW8bit] - TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3666750Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[True-Adam4bit] - TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3667867Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[True-AdamW4bit] - TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3668977Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[True-AdamFp8] - TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3670100Z FAILED test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[True-AdamWFp8] - TypeError: No comparison pair was able to handle inputs of type <class 'float'> and <class 'torch.Tensor'>.
+2026-11-13T10:05:05.3670297Z 30 failed, 6 passed, 3 warnings in 45.16s
+2026-11-13T10:05:05.3670309Z 
+2026-11-13T10:05:05.3670663Z before {'tests': 36, 'failures': 30, 'errors': 0, 'skipped': 0, 'returncode': 1}
+2026-11-13T10:05:22.3732746Z ....................................                                     [100%]
+2026-11-13T10:05:22.3733474Z =============================== warnings summary ===============================
+2026-11-13T10:05:22.3734180Z test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[False-Adam8bit]
+2026-11-13T10:05:22.3736356Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimState8bit does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:05:22.3738639Z     warn_once(
+2026-11-13T10:05:22.3738849Z 
+2026-11-13T10:05:22.3739271Z test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[False-Adam4bit]
+2026-11-13T10:05:22.3741795Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimState4bit does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:05:22.3743911Z     warn_once(
+2026-11-13T10:05:22.3744112Z 
+2026-11-13T10:05:22.3744513Z test/test_low_bit_optim_state_dict.py::test_restore_quantized_state_lr[False-AdamFp8]
+2026-11-13T10:05:22.3747253Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimStateFp8 does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:05:22.3749418Z     warn_once(
+2026-11-13T10:05:22.3749620Z 
+2026-11-13T10:05:22.3749985Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T10:05:22.3750692Z 36 passed, 3 warnings in 15.70s
+2026-11-13T10:05:22.3751222Z 
+2026-11-13T10:05:22.3751582Z after {'tests': 36, 'failures': 0, 'errors': 0, 'skipped': 0, 'returncode': 0}
+2026-11-13T10:06:57.7196903Z .............................                                            [100%]
+2026-11-13T10:06:57.7197825Z =============================== warnings summary ===============================
+2026-11-13T10:06:57.7198764Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_Adam4bit_bfloat16_device_cpu
+2026-11-13T10:06:57.7199932Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_Adam4bit_float32_device_cpu
+2026-11-13T10:06:57.7201083Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamW4bit_bfloat16_device_cpu
+2026-11-13T10:06:57.7202170Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamW4bit_float32_device_cpu
+2026-11-13T10:06:57.7204662Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimState4bit does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:06:57.7206470Z     warn_once(
+2026-11-13T10:06:57.7206603Z 
+2026-11-13T10:06:57.7206880Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_Adam8bit_bfloat16_device_cpu
+2026-11-13T10:06:57.7207519Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_Adam8bit_float32_device_cpu
+2026-11-13T10:06:57.7208129Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamW8bit_bfloat16_device_cpu
+2026-11-13T10:06:57.7208748Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamW8bit_float32_device_cpu
+2026-11-13T10:06:57.7210170Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimState8bit does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:06:57.7211384Z     warn_once(
+2026-11-13T10:06:57.7211508Z 
+2026-11-13T10:06:57.7211767Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamFp8_bfloat16_device_cpu
+2026-11-13T10:06:57.7212368Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamFp8_float32_device_cpu
+2026-11-13T10:06:57.7212960Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamWFp8_bfloat16_device_cpu
+2026-11-13T10:06:57.7213848Z test/test_low_bit_optim.py::TestOptim::test_optim_smoke_optim_name_AdamWFp8_float32_device_cpu
+2026-11-13T10:06:57.7215509Z   /home/runner/work/ao/ao/.venv/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:707: UserWarning: OptimStateFp8 does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+2026-11-13T10:06:57.7216731Z     warn_once(
+2026-11-13T10:06:57.7216849Z 
+2026-11-13T10:06:57.7217056Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T10:06:57.7217510Z 29 passed, 17 deselected, 12 warnings in 93.65s (0:01:33)
+2026-11-13T10:06:57.7217736Z 
+2026-11-13T10:06:57.7217941Z existing {'tests': 29, 'failures': 0, 'errors': 0, 'skipped': 0, 'returncode': 0}
+2026-11-13T10:06:57.7243012Z {
+2026-11-13T10:06:57.7243433Z   "head": "49d23b3410c6870bab011b5f6d9e4b3c1e3d927b",
+2026-11-13T10:06:57.7243939Z   "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+2026-11-13T10:06:57.7244424Z   "torch": "2.14.0+cpu",
+2026-11-13T10:06:57.7244772Z   "before": {
+2026-11-13T10:06:57.7245058Z     "tests": 36,
+2026-11-13T10:06:57.7245622Z     "failures": 30,
+2026-11-13T10:06:57.7245952Z     "errors": 0,
+2026-11-13T10:06:57.7246253Z     "skipped": 0,
+2026-11-13T10:06:57.7246538Z     "returncode": 1
+2026-11-13T10:06:57.7246811Z   },
+2026-11-13T10:06:57.7247056Z   "after": {
+2026-11-13T10:06:57.7247606Z     "tests": 36,
+2026-11-13T10:06:57.7247915Z     "failures": 0,
+2026-11-13T10:06:57.7248204Z     "errors": 0,
+2026-11-13T10:06:57.7248487Z     "skipped": 0,
+2026-11-13T10:06:57.7248787Z     "returncode": 0
+2026-11-13T10:06:57.7249072Z   },
+2026-11-13T10:06:57.7249319Z   "existing": {
+2026-11-13T10:06:57.7249605Z     "tests": 29,
+2026-11-13T10:06:57.7249886Z     "failures": 0,
+2026-11-13T10:06:57.7250171Z     "errors": 0,
+2026-11-13T10:06:57.7250449Z     "skipped": 0,
+2026-11-13T10:06:57.7250732Z     "returncode": 0
+2026-11-13T10:06:57.7251012Z   }
+2026-11-13T10:06:57.7251267Z }
+2026-11-13T10:06:57.9798645Z ##[group]Run .venv/bin/ruff check torchao/optim/adam.py test/test_low_bit_optim_state_dict.py
+2026-11-13T10:06:57.9799344Z [36;1m.venv/bin/ruff check torchao/optim/adam.py test/test_low_bit_optim_state_dict.py[0m
+2026-11-13T10:06:57.9799964Z [36;1m.venv/bin/ruff format --diff torchao/optim/adam.py test/test_low_bit_optim_state_dict.py[0m
+2026-11-13T10:06:57.9821171Z shell: /usr/bin/bash -e {0}
+2026-11-13T10:06:57.9821434Z env:
+2026-11-13T10:06:57.9821635Z   OMP_NUM_THREADS: 2
+2026-11-13T10:06:57.9821869Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:06:57.9822124Z   MAX_JOBS: 2
+2026-11-13T10:06:57.9822318Z   PYTHONPATH: .
+2026-11-13T10:06:57.9822597Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:57.9823036Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:06:57.9823459Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:57.9823876Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:57.9824272Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:57.9824656Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:06:57.9825019Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:06:57.9825587Z ##[endgroup]
+2026-11-13T10:06:57.9946364Z All checks passed!
+2026-11-13T10:06:58.0026474Z 2 files already formatted
+2026-11-13T10:06:58.0094014Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T10:06:58.0094319Z with:
+2026-11-13T10:06:58.0094526Z   name: restored-lr-49d23b3410c6
+2026-11-13T10:06:58.0094966Z   path: before.log
+before.xml
+after.log
+after.xml
+existing.log
+existing.xml
+validation_result.json
+
+2026-11-13T10:06:58.0095740Z   if-no-files-found: warn
+2026-11-13T10:06:58.0095984Z   compression-level: 6
+2026-11-13T10:06:58.0096202Z   overwrite: false
+2026-11-13T10:06:58.0096414Z   include-hidden-files: false
+2026-11-13T10:06:58.0096643Z env:
+2026-11-13T10:06:58.0097007Z   OMP_NUM_THREADS: 2
+2026-11-13T10:06:58.0097234Z   TORCHINDUCTOR_COMPILE_THREADS: 1
+2026-11-13T10:06:58.0097481Z   MAX_JOBS: 2
+2026-11-13T10:06:58.0097676Z   PYTHONPATH: .
+2026-11-13T10:06:58.0097952Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:58.0098378Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T10:06:58.0098792Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:58.0099326Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:58.0099705Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T10:06:58.0100078Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T10:06:58.0100444Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:06:58.0100734Z ##[endgroup]
+2026-11-13T10:06:58.1800871Z (node:2844) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:06:58.1802128Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:06:58.1950269Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T10:06:58.1961518Z The least common ancestor is /home/runner/work/ao/ao. This will be the root directory of the artifact
+2026-11-13T10:06:58.1962717Z With the provided path, there will be 7 files uploaded
+2026-11-13T10:06:58.1964473Z Artifact name is valid!
+2026-11-13T10:06:58.1965088Z Root directory input is valid!
+2026-11-13T10:06:58.4727094Z Beginning upload of artifact content to blob storage
+2026-11-13T10:06:58.5092435Z (node:2844) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T10:06:58.8829149Z Uploaded bytes 7220
+2026-11-13T10:06:58.9295443Z Finished uploading artifact content to blob storage!
+2026-11-13T10:06:58.9296705Z SHA256 digest of uploaded artifact zip is 40495473816c0cc84f56bccc7379fcef63fa7649aa4a40defc8055f5a236d7c6
+2026-11-13T10:06:58.9298409Z Finalizing artifact upload
+2026-11-13T10:06:59.2864515Z Artifact restored-lr-49d23b3410c6.zip successfully finalized. Artifact ID 14027656869
+2026-11-13T10:06:59.2866359Z Artifact restored-lr-49d23b3410c6 has been successfully uploaded! Final size is 7220 bytes. Artifact ID is 14027656869
+2026-11-13T10:06:59.2873010Z Artifact download URL: https://github.com/Afloat16/ao/actions/runs/43406217617/artifacts/14027656869
+2026-11-13T10:06:59.3103137Z Post job cleanup.
+2026-11-13T10:06:59.4401326Z Pruning cache...
+2026-11-13T10:06:59.4414823Z (node:2856) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:06:59.4416175Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:06:59.4458938Z [command]/opt/hostedtoolcache/uv/0.13.8/x86_64/uv cache prune --ci
+2026-11-13T10:06:59.4569053Z Pruning cache at: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:06:59.7125962Z Removed 16993 files (1.9MiB)
+2026-11-13T10:06:59.7156064Z Saving cache path: /home/runner/work/_temp/setup-uv-cache
+2026-11-13T10:06:59.7319455Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/ao/ao --files-from manifest.txt --use-compress-program zstdmt
+2026-11-13T10:06:59.9343897Z (node:2856) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T10:07:00.5103961Z Sent 2740142 of 2740142 (100.0%), 4.5 MBs/sec
+2026-11-13T10:07:00.6146233Z cache saved with the key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.16-pruned-9058e4db22c6cb22661a285be44e07e8c70d9b52c5f63329ec4702a1badb5b1b
+2026-11-13T10:07:00.6291757Z Post job cleanup.
+2026-11-13T10:07:00.7590569Z (node:2879) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T10:07:00.7591598Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T10:07:00.7760341Z Post job cleanup.
+2026-11-13T10:07:00.8772988Z [command]/usr/bin/git version
+2026-11-13T10:07:00.8823107Z git version 2.56.0
+2026-11-13T10:07:00.8873529Z Temporarily overriding HOME='/home/runner/work/_temp/6d5e4d51-6615-416c-bc25-7071f5b49282' before making global git config changes
+2026-11-13T10:07:00.8874944Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T10:07:00.8880611Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ao/ao
+2026-11-13T10:07:00.8928909Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T10:07:00.8978457Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T10:07:00.9253665Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T10:07:00.9288205Z http.https://github.com/.extraheader
+2026-11-13T10:07:00.9301754Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T10:07:00.9344781Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T10:07:00.9649158Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T10:07:00.9702036Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T10:07:01.0105857Z Cleaning up orphan processes
+2026-11-13T10:07:01.0574414Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

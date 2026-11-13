@@ -1,0 +1,46 @@
+{
+  "repository": "pytorch/ao",
+  "fork": "Afloat16/ao",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "branch": "fix/low-bit-optimizer-restored-lr-20261113",
+  "head": "49d23b3410c6870bab011b5f6d9e4b3c1e3d927b",
+  "title": "Restore scalar learning rates when loading low-bit optimizer checkpoints",
+  "body": "## Problem\n\nLow-bit Adam optimizers convert scalar learning rates to tensors when parameter groups are added, but `load_state_dict()` restores parameter groups through `__setstate__` and skips that conversion. Loading a normal PyTorch Adam/AdamW checkpoint, or a low-bit checkpoint whose learning rates were serialized as scalars, leaves a float learning rate and makes the next optimizer step fail.\n\n## Change\n\nApply the existing FP32 scalar-to-tensor learning-rate normalization during state restoration. Existing tensor learning rates keep their dtype and device.\n\n## Validation\n\nExact commit: `49d23b3410c6870bab011b5f6d9e4b3c1e3d927b`.\n\n36 new native CPU cases cover all six public low-bit Adam/AdamW classes:\n- Importing actual Adam/AdamW model and optimizer checkpoints, with and without AMSGrad and with FP32/BF16 default dtype during loading.\n- Resuming real model updates and a StepLR schedule, comparing parameters and losses with native PyTorch.\n- Restoring actual quantized optimizer checkpoints with scalar or tensor learning rates, preserving the optimizer-state subclasses and matching subsequent updates exactly.\n\nOriginal source: 30 failures and six passing tensor-LR controls. Patched source: all 36 new cases and 29 existing optimizer/quantization tests pass. Ruff and formatting pass.\n\nNative validation: https://github.com/Afloat16/ao/actions/runs/43406217617\n\nThis change preserves the loaded moment representation; importing an ordinary Adam checkpoint does not automatically quantize its dense moments.",
+  "publication": "pull_request_created",
+  "pull_request": {
+    "number": 5115,
+    "url": "https://github.com/pytorch/ao/pull/5115",
+    "head": "49d23b3410c6870bab011b5f6d9e4b3c1e3d927b",
+    "state": "open",
+    "draft": false,
+    "merged_at": null,
+    "maintainer_can_modify": false
+  },
+  "validation": {
+    "native_run": 43406217617,
+    "native_job": 131821087479,
+    "validation_head": "43b56ba3712903dcaa59e1cf46511ca214616490",
+    "new_tests": 36,
+    "baseline_failed": 30,
+    "baseline_passed": 6,
+    "patched_passed": 36,
+    "existing_passed": 29,
+    "torch": "2.14.0+cpu",
+    "ruff": "0.11.6",
+    "status": "success"
+  },
+  "deduplication": {
+    "related_prs": [
+      2606,
+      736,
+      4915,
+      1217,
+      3934
+    ],
+    "distinction": "Normalize restored parameter-group LR; separate from constructor groups, LR scheduler mechanics, step counters, and quantized state serialization."
+  },
+  "review": "Independent production and complete native regression review passed.",
+  "scope": "Preserves loaded dense or quantized moment representation; does not automatically quantize imported native moments.",
+  "merged_at": null,
+  "counts_for_merged": false
+}
