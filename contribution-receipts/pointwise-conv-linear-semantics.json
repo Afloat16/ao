@@ -1,0 +1,33 @@
+{
+  "repository": "pytorch/ao",
+  "number": 5114,
+  "url": "https://github.com/pytorch/ao/pull/5114",
+  "head": "2cb2497e32703910b9998c90886bcf44eb0e4322",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "branch": "fix/pointwise-conv-linear-semantics-20261113",
+  "state": "open",
+  "draft": false,
+  "merged_at": null,
+  "validation_run": 43401804602,
+  "validation_head": "a3cbf7b9c1bf91d321f45a6a0406f73043e45c50",
+  "baseline": {
+    "tests": 28,
+    "failures": 26,
+    "errors": 0,
+    "skipped": 0
+  },
+  "patched": {
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "existing": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "scope": "Conv2d pointwise replacement preserving spatial, training, shape and root-module semantics; native INT8 inference",
+  "peer_review": "passed"
+}
