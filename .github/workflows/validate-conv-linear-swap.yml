@@ -1,0 +1,48 @@
+name: Validate pointwise Conv2d replacement semantics
+on:
+  push:
+    branches: [validation/pointwise-conv-linear-semantics-20261113]
+permissions:
+  contents: read
+jobs:
+  native-optimizer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      OMP_NUM_THREADS: "2"
+      TORCHINDUCTOR_COMPILE_THREADS: "1"
+      MAX_JOBS: "2"
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 64
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - name: Install native CPU PyTorch and project test dependencies
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          uv pip install --python .venv/bin/python pytest expecttest hypothesis numpy packaging safetensors psutil "ruff==0.11.6"
+      - name: Check baseline failures and native resumed training
+        run: .venv/bin/python validation/run_conv_linear_swap.py
+      - name: Check changed Python files
+        if: always()
+        run: |
+          .venv/bin/ruff check torchao/quantization/quant_api.py test/quantization/test_conv_linear_swap.py
+          .venv/bin/ruff format --diff torchao/quantization/quant_api.py test/quantization/test_conv_linear_swap.py
+      - name: Save native evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conv-linear-2cb2497e3270
+          path: |
+            before.log
+            before.xml
+            after.log
+            after.xml
+            existing.log
+            existing.xml
+            validation_result.json
