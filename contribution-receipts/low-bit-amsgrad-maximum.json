@@ -1,0 +1,27 @@
+{
+  "repository": "pytorch/ao",
+  "number": 5113,
+  "url": "https://github.com/pytorch/ao/pull/5113",
+  "head": "9e0beae00fd32dfb34fe173cacd97f22bbfc356a",
+  "base": "a724e78b166c828a81d858b029daf4e4f4011a27",
+  "branch": "fix/low-bit-amsgrad-maximum-20261113",
+  "state": "open",
+  "draft": false,
+  "merged_at": null,
+  "validation_run": 43398462913,
+  "validation_head": "7d7a3fa08052dff7e0ae89bfb9c4cc3bdd2d886e",
+  "baseline": {
+    "tests": 30,
+    "failures": 30,
+    "errors": 0,
+    "skipped": 0
+  },
+  "patched": {
+    "tests": 59,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "review": "passed",
+  "scope": "Native CPU AMSGrad maximum dispatch, actual Adam/AdamW training and optimizer checkpoint continuation"
+}
