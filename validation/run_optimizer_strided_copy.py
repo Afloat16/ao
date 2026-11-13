@@ -6,7 +6,7 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 BASE = "a724e78b166c828a81d858b029daf4e4f4011a27"
-HEAD = "7e72fa9d76e5e428242ec6ac82b952ca9460f0f4"
+HEAD = "6eda0c4e1c4003d68de96bf79fb3f5ec4383846f"
 FILES = ["torchao/optim/quant_utils.py","torchao/optim/subclass_4bit.py","torchao/optim/subclass_8bit.py","torchao/optim/subclass_fp8.py","test/test_low_bit_optim.py"]
 SOURCES = FILES[:-1]
 TESTS = FILES[-1]
